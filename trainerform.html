@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/customTrainer.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row trainerWrapper">
+            <h2 class="text-center formTitle"> Trainer's Enrollment Form </h2>
+            <form>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label> Select Trainer </label>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <select id="trainerParentCategory" name="trainerParentCategory" class="form-control">
+                            <option value="">Select Category</option>
+                            <option value="1">Corporate Trainer</option>
+                            <option value="2">Professional Institute Trainer</option>
+                            <option value="3">School Teacher/Tutor</option>
+                            <option value="4">College Professor</option>
+                            <option value="5">Self Employed</option>
+                        </select>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label> Select Sub Category </label>
+                    </div>
+                    <div class="col-md-7 col-sm-8">
+                        <select id="subCategory" name="subCategory" class="form-control">
+                            <option value="Full time">Full time</option>
+                            <option value="Freelancer">Freelancer</option>
+                        </select>
+                    </div>
+                </div><br>                
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label>Select Skills Set</label>
+                    </div>
+                    <div class="col-md-7 col-sm-4">
+                        <textarea type="text" name="skills" id="skills" class='form-control skillsList' rows=10 cols="30"></textarea>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label for="">Academic Details</label>
+                    </div>
+                    <div class="col-md-7 col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">Highest Degree Name</div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="degreename" id="degreename" class="form-control" placeholder="Highest Degree Name">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Course Name</div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="coursename" id="coursename" class="form-control" placeholder="Course Name">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">Percentage/Score</div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="percentage" id="percentage" class="form-control" placeholder="Percentage/Score">
+                                    </div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label for="">Professional Journey</label>
+                    </div>
+                    <div class="col-md-7 col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>Brief about your professional journey.(500 words)</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="profjourney" id="profjourney"></textarea>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>Total experience in Yrs</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="totalexperience" id="totalexperience" class="form-control">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>Relevant training experience in yrs</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="trainingexperience" id="trainingexperience" class="form-control">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>Organization worked with - </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p><input type="radio" name="orgWorkedWith">FTE (Full Time Employee)</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p><input type="radio" name="orgWorkedWith">Freelancer/Enterpreneur</p>
+                                    </div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <label for="">Professional Journey</label>
+                    </div>
+                    <div class="col-md-7 col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p for="">Name of TC Member</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="tcname" id="tcname" class='form-control'>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p for="">Enrollment Id</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" name="enrollmentid" id="enrollmentid" class='form-control'>
+                                    </div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-9">
+                        <label>Personal Information</label>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-md-2">
+                                    <label>Full Name</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-12 pull-right">
+                                            <input type="text" name="fullname" id="fullname" class='form-control' placeholder="Enter Full Name">
+                                        </div>
+                                    </div><br>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Contact</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" name="contact1" id="contact1" class='form-control' placeholder="Mobile Number #1">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="contact2" id="contact2" class='form-control' placeholder="Mobile Number #2">
+                                        </div>
+                                    </div><br>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <textarea name="address" id="address" cols="5" rows="5" class="form-control"></textarea>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" name="city" id="city" class='form-control' placeholder="Enter City">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>State</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" name="state" id="state" class='form-control' placeholder="Enter State">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-offset-4">
+                        <button class='btn btn-success btn-md' id="btnSave" type="submit">SAVE</button>
+                    </div>
+                </div><br>
+            </form>
+        </div><br>
+    </div>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="./assets/js/bootstrap-tagsinput.js"></script>
+    <script src="./assets/js/customTrainer.js"></script>
+</body>
+
+</html>

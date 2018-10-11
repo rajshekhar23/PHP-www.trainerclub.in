@@ -1,0 +1,81 @@
+.form-control,.bootstrap-tagsinput,.panel-body {
+    border-radius: 1px;
+}
+body,label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    overflow-x: hidden !important;
+    color: #000;
+    font-weight: normal;
+}
+h2 {
+    color: #838282;
+    font-size: 24px;
+    padding: 0;
+    text-transform: uppercase;
+    color: #2bcdc1;
+}
+
+.minHeight {
+    min-height: 45px;
+}
+
+
+.searchFilterWrapper {
+    margin:30px;
+}
+
+.trainerWrapper {
+    background-color: #ededed;
+}
+.trainerWrapper .item {
+    background-color: #fff;
+    margin:10px 0px;
+    margin-right:10px; 
+    min-height: 400px;
+    padding:5px;
+}
+.trainerWrapper:last-child {
+    margin:0;
+    padding:0;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+}
+.thumbnail {
+    margin-top:10px;
+    margin-bottom: 0px; 
+}
+
+.thumbnail img {
+    height: 200px;
+    padding:10px 0;
+}
+
+.item {
+    border:1px solid #ddd;
+}
+.caption p {
+    margin-bottom: 5px;
+}
+
+.fullname {
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
+.caption .value {
+    font-size: 14px;
+}
+
+.caption .title {
+    font-size: 14px;
+    font-weight: normal;
+    margin-right: 3px;
+}
+
+.caption {
+    padding:10px;
+}
