@@ -1,11 +1,27 @@
 var STATE_LIST = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Delhi",
 "Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur",
 "Meghalaya","Mizoram","Nagaland","Orissa","Punjab","Pondicherry","Rajasthan","Sikkim","Tamil Nadu","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"];
+var orgWorkedWithList = [];
 $(document).ready(function () {
+
+  $("#addAllOrgWorkedWithList").click(function(event) {
+    event.preventDefault();
+    orgWorkedWithList = [];
+    for(var i=1;i<=5;i++) {
+      var orgWorkedWithObject = {};
+      orgWorkedWithObject.orgName = $("#orgName"+i).val();
+      orgWorkedWithObject.trainingName = $("#trainingName"+i).val();
+      orgWorkedWithObject.topicsCovered = $("#topicsCovered"+i).val();
+      orgWorkedWithObject.duration = $("#duration"+i).val();
+      orgWorkedWithObject.monthyear = $("#monthyear"+i).val();
+      orgWorkedWithList.push(orgWorkedWithObject);
+    }
+  })
   //trailer form submission
   $("form[name='trainerForm']").on('submit', function (e) {
     e.preventDefault();
     var formData = new FormData(this);
+    formData.append('orgWorkedWithList',JSON.stringify(orgWorkedWithList));
     $.ajax({
       type: 'post',
       url: 'backend/trainerOperation.php',
@@ -15,13 +31,81 @@ $(document).ready(function () {
       success: function (data) {
         console.log('data',data);
         if(data > 0) {
-          alert('Trainer enrolled successfully');
-          window.location.href="trainerProfile.php?trainerId="+data;
+          toast('Trainer enrolled successfully');
+          setTimeout(function() {
+            window.location.href="trainerProfile.php?trainerId="+data;
+          }, 3000);          
+          
         }
       }
     });
   });
 
+  //trailer form submission
+  $("form[name='PostJobForm']").on('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    //formData.append('orgWorkedWithList',JSON.stringify(orgWorkedWithList));
+    $.ajax({
+      type: 'post',
+      url: 'backend/postJobOperation.php',
+      processData: false,
+      contentType: false,
+      data: formData,
+      success: function (data) {
+        console.log('data',data);
+        if(data > 0) {
+          toast('Job posted successfully');
+          setTimeout(function(){
+            window.location.href="index.php";
+          },3000);
+          
+        }
+      }
+    });
+  });  
+
+  $("form[name='login']").on('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+      type: 'post',
+      url: 'backend/loginOperation.php',
+      processData: false,
+      contentType: false,
+      data: formData,
+      success: function (data) {
+        console.log(data);
+        if(data == 'failed') {
+          toast('Login Failed');
+        } else {
+          window.location.href = data;
+        }
+      }
+    });
+  });
+
+  $("form[name='editTrainerForm']").on('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+      type: 'post',
+      url: 'backend/editTrainerOperation.php',
+      processData: false,
+      contentType: false,
+      data: formData,
+      success: function (data) {
+        console.log('data',data);
+        if(data > 0) {
+          toast('Trainer profile updated');
+          setTimeout(function() {
+            window.location.href="trainerProfile.php?trainerId="+data;
+          }, 3000);
+        }
+      }
+    });
+  });
+  
   $("form[name='clientForm']").on('submit', function (e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -33,13 +117,35 @@ $(document).ready(function () {
       data: formData,
       success: function (data) {
         if(data > 0) {
-          alert('Client enrolled successfully');
-          window.location.href="clientProfile.php?clientId="+data;
+          toast('Client enrolled successfully');
+          setTimeout(function(){
+            window.location.href="clientProfile.php?clientId="+data;
+          },3000);
+          
         }
       }
     });
   });
 
+  $("form[name='editclientForm']").on('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+      type: 'post',
+      url: 'backend/editClientOperation.php',
+      processData: false,
+      contentType: false,
+      data: formData,
+      success: function (data) {
+        if(data > 0) {
+          toast('Client Profile Updated Successfully');
+          setTimeout(function() {
+            window.location.href="clientProfile.php?clientId="+data;  
+          }, 3000);          
+        }
+      }
+    });
+  });
 
   $("#trainerParentCategory").change(function(){
     var selectedCategory = $(this).val();
@@ -50,8 +156,10 @@ $(document).ready(function () {
       $("#subCategory").append('<option value="Freelancer">Freelancer</option>');
     } else if(selectedCategory == 'School Teacher/Tutor') {
       $("#subCategory").append('<option value="">Select Sub Category</option>');
-      $("#subCategory").append('<option value="Personal Coaching - Home Visit - Own Class/ Residence">Personal Coaching - Home Visit - Own Class/ Residence</option>');
-      $("#subCategory").append('<option value="Group Coaching - Home Visit - Own Class/ Residence">Group Coaching-Home Visit - Own Class/ Residence</option>');
+      $("#subCategory").append('<option value="Personal Coaching - Home Visit">Personal Coaching - Home Visit</option>');
+      $("#subCategory").append('<option value="Personal Coaching - Own Class / Residence">Personal Coaching - Own Class / Residence</option>');
+      $("#subCategory").append('<option value="Group Coaching - Home Visit">Group Coaching - Home Visit</option>');
+      $("#subCategory").append('<option value="Group Coaching - Own Class / Residence">Group Coaching - Own Class / Residence</option>');
     } else if(selectedCategory == 'College Professor') {
       $("#subCategory").append('<option value="">Select Sub Category</option>');
       $("#subCategory").append('<option value="Full Time">Full Time</option>');
@@ -65,17 +173,21 @@ $(document).ready(function () {
   STATE_LIST.forEach(function(state){
     $("#state").append("<option value="+ state +">"+ state.toUpperCase() +"</option>");
   });  
+
   $("#selectSoftSkillsText").css('display', 'none');
   $("#selectSoftSkillsText").css('margin-top', '10px');
   $("#selectOrgWorkedWithText").css('display', 'none');
   $("#selectOrgWorkedWithText").css('margin-top', '10px');
+  
   $("#logout,#signout").click(function (event) {
     $.post("backend/logoutOperation.php", {}, function (data) {
       window.location.href = "index.php";
     });
   });
+
   loadAllSoftSkills();
   loadAllOrgWorkedWithList();
+  
   $("#selectSoftSkills").change(function () {
     if ($(this).val() == 'Other') {
       $("#selectSoftSkillsText").show(1000);
@@ -83,6 +195,7 @@ $(document).ready(function () {
       $("#selectSoftSkillsText").hide(1000);
     }
   });
+
   $("#selectSoftSkillsText").blur(function () {
     addSkill('softskills',$(this).val());
   });
@@ -94,9 +207,11 @@ $(document).ready(function () {
       $("#selectOrgWorkedWithText").hide(1000);
     }
   });
+
   $("#selectOrgWorkedWithText").blur(function () {
     addOrgWorkedWith('orgWorkedWith',$(this).val());
   });
+
 });
 
 function addOrgWorkedWith(orgWorkedWithId, orgWorkedWithName) {

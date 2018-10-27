@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intensely : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png" />
+  <title>Trainer's Club</title>
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
   <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -71,28 +71,19 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="Practice Area" class="col-form-label">Industry</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control" >
+                        <input type="text" name="industry" id="industry" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="Practice Area" class="col-form-label">Skills</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control" >                </div>
+                        <input type="text" name="skills" id="skills" class="form-control">
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Country" class="col-form-label">Experience</label>
-                        <select id="country" name="country" class="form-control" >
-                            <option value="">SELECT COUNTRY</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3" style="display:none;">
-                    <div class="form-group">
-                        <label for="Country" class="col-form-label">State</label>
-                        <select id="state" name="state" class="form-control" >
-                            <option value="">SELECT STATE</option>
-                        </select>
+                        <label for="CExperience" class="col-form-label">Experience</label>
+                        <input type="text" id="experience" name="experience" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -104,7 +95,16 @@
                 </div>
             </div>
         </div>
-        <div class="row" id="trainerListWrapper">
+        <div class="row">
+            <p id="selectedCount"></p>
+            <div id="trainerListWrapper">
+            </div>
+        </div>
+        <div class="row text-center">
+            <button class="btn btn-info" id="btnBook" style="width:10%;margin:20px auto;font-weight:bold;">BOOK</button>
+        </div>
+        <div class="row" id="allSelectedTrainers">
+        </div>
       </div>
     </div>
   </section>
@@ -130,56 +130,128 @@
   <script type="text/javascript" src="assets/js/wow.js"></script>
   <!-- progress bar   -->
   <script type="text/javascript" src="assets/js/bootstrap-progressbar.js"></script>
-
-
   <!-- Custom js -->
   <script type="text/javascript" src="assets/js/custom.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
   <script src="./assets/js/bootstrap-tagsinput.js"></script>
   <script src="./assets/js/customTrainerList.js"></script>
+  <script src="./assets/js/customTrainer.js"></script>
   <script>
       $(document).ready(function() {
-          readAllTrainersList();
-          $("form[name='login']").submit(function() {
-              var user_name = $("form :input[name='user_name']").val();
-              var user_password = $("form :input[name='user_password']").val();
-              var user_password = $("form :input[name='user_role']").val();
-              var flag = "checkAuth";
-              $.post("./backend/loginOperation.php",{
-                  flag:flag,
-                  user_name:user_name,
-                  user_password:user_password,
-                  user_role:user_role
-              },function(data) {
-                  alert(data);
-              });
+            $("#btnBook").attr('disabled',true);
+            $("#btnBook").click(function() {
+                var favorite = [];
+                $.each($("input[name='chkSelected']:checked"), function(){ 
+                    favorite.push($(this).val());
+                });
+                if(favorite.length > 0) {
+                    var selectedTrainers = favorite.join(", ");
+                    $.post("./backend/allProducts.php",{
+                        flag:"bookSelectedTrainers",
+                        selectedTrainers:selectedTrainers
+                    },function(data) {
+                        if(data == 'SESSION INACTIVE') {
+                            toast('Please Do Login As Client');
+                        } else {
+                            if(data.length > 0) {
+                            toast('Selected Trainers booked !!!');
+                            $('input:checkbox').removeAttr('checked');
+                            $("#btnBook").attr('disabled',true);
+                            $("#selectedCount").html('');
+                            var contentBody= "<table border='1' cellspacing='5' cellpadding='10' class='table table-condensed table-striped table-bordered'><tr>";
+                            contentBody += "<th>Name</th><th>City</th><th>Skill Set</th><th>Certification</th><th>Academic</th>";
+                            contentBody += "</tr>";
+                            data.forEach(element => {
+                                contentBody += "<tr><td>"+ element.firstName +" " + element.middleName + " " + element.lastName +"</td>";
+                                contentBody += "<td>"+ element.city +"</td>";
+                                contentBody += "<td>"+ element.selectSoftSkills +"</td>";
+                                contentBody += "<td>"+ element.diplomaCertification +"</td>";
+                                contentBody += "<td>"+ element.academic +"</td></tr>";
+                            });
+                            contentBody += "</table>";
+                            //$("#allSelectedTrainers").html(contentBody);
+                            $.post("./backend/allProducts.php",{
+                                flag:"sendMailWithSelectedTrainers",
+                                data:contentBody
+                            },function(data) {
+                            });                                
+                            }
+                        }
+                    });
+                }
           });
+
+          $("#btnReset").click(function() {
+              clearAll();
+          });
+          var obj = {
+                flag:"readAllTrainersList"
+            };
+          readAllTrainersList(obj);
+          $("#btnSearch").click(function() {
+            var obj = {
+                flag:"readAllTrainersList",
+                location:$("#location").val(),
+                industry:$("#industry").val(),
+                skills:$("#skills").val(),
+                experience:$("#experience").val()
+            };
+            readAllTrainersList(obj);
+          });
+
           $("#logout,#signout").click(function() {
             event.preventDefault();
           $.post("./backend/logoutOperation.php",{},function(data) {
             window.location.href = "index.php";
           });
+
         });
       });
-      function readAllTrainersList(){
-        $.post("./backend/allProducts.php",{
-            flag:"readAllTrainersList"
-        },function(data) {
-            console.log(data);                  
-            //var item;
+      function clearAll() {
+          $("#location").val('');
+          $("#industry").val('');
+          $("#skills").val('');
+          $("#experience").val('');
+            var obj = {
+                flag:"readAllTrainersList"
+            };
+        readAllTrainersList(obj);
+      }
+      function checkCount(event) {
+        var countCheckedCheckboxes = $('input:checkbox:checked').length;
+        $("#selectedCount").html('Selected Trainers count : ' + countCheckedCheckboxes);
+        if(countCheckedCheckboxes > 0) {
+            $("#btnBook").attr('disabled',false);
+            if(countCheckedCheckboxes > 2) {
+                $('input:checkbox:not(":checked")').attr('disabled',true);
+            } else {
+                $('input:checkbox:not(":checked")').attr('disabled',false);
+            }
+        } else {
+            $("#btnBook").attr('disabled',true);
+        }
+      }
+
+      function readAllTrainersList(objectParam) {
+        $("#trainerListWrapper").html('');
+        $.post("./backend/allProducts.php",objectParam,function(data) {
+            console.log(data);
             data.forEach(function(object,index) {
+                var url = "./backend/uploads/trainerIdentity-"+object.trainer_id+".jpg";
                 var item = '<div class = "col-sm-6 col-md-3 item">' +
-                    '<div class = "thumbnail">'+
-                        '<img src = "./backend/uploads/trainerIdentity-50.png" alt = "Trainer\'s identity">'+
-                    '</div>'+
+                    '<div class="bg-info" style="border-radius:2px;"><label class="col-form-label" style="padding:1px 2px;"><input style="padding:1px 2px;margin-right:3px;" type="checkbox" onchange="checkCount(event)" value="'+ object.trainer_id +'" name="chkSelected" />'+ (index +1) +'</label></div>' +
+                    '<div class = "thumbnail">' +
+                        '<img src ="'+url+'"  alt = "Trainer\'s identity">' +
+                    '</div>' +
                     '<div class = "caption">'+
-                        '<p class="fullname">Full Name: <span>'+ 
-                            object.firstName + ' ' + object.middleName +' ' + object.lastName +'</span></p>'+
+                        '<p>Name: <span>' + 
+                            object.firstName + ' ' + object.middleName +' ' + object.lastName +'</span></p>' +
                         '<p>City: '+ object.city +'</p>'+
-                        '<p>State: '+ object.state +'</p>'+
-                        '<p>Email: '+ object.emailId +'</p>'+
+                        '<p>Skill Set: '+ object.selectSoftSkills +'</p>' +
+                        '<p>Certification: '+ object.diplomaCertification +'</p>' +
+                        '<p>Academic: '+ object.academic +'</p>' +        
                     '</div>'+
-                '</div>';
+                '</div>';                
                 $("#trainerListWrapper").append(item);
             });
         });          

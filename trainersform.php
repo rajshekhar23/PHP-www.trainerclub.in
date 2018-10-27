@@ -4,16 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intensely : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png" />
-  <link href="assets/css/font-awesome.css" rel="stylesheet">
+<title>Trainer's Club</title>
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
+
+ <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
   <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="screen" />
   <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-progressbar-3.3.4.css" />
-  <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/bootstrap-tagsinput.css">
   <link rel="stylesheet" href="assets/css/font-awesome.css">
   <link rel="stylesheet" href="assets/css/animate.css">
   <link href="style.css" rel="stylesheet">
@@ -74,7 +72,7 @@
                       <div class="form-group">
                           <label for="Select Sub Category" class="col-form-label">Select Sub Category</label>
                           <select id="subCategory" name="subCategory" class="form-control" required>
-                            <option value="">-- select --</option>
+                            <option value="">Select Sub Category</option>
                           </select>
                       </div>
                 </div>
@@ -85,10 +83,14 @@
                   <div class="form-group">
                       <label for="Soft Skills" class="col-form-label">Soft Skills</label>
                       <select id="selectSoftSkills" name="selectSoftSkills" class="form-control" required>
-                        <option value="">-- select --</option>
+                      <option value="">Select Soft Skills</option>
                       </select>
-                      <input type="text" name="selectSoftSkills" id="selectSoftSkillsText" class="form-control" 
+                      <input type="text" name="selectSoftSkillsText" id="selectSoftSkillsText" class="form-control" 
                         placeholder="Enter Soft Skill">
+                  </div>
+                  <div class="form-group">
+                      <label for="Technical Skills" class="col-form-label">Technical Skills</label>
+                      <input type="text" name="technicalSkills" id="technicalSkills" class="form-control" placeholder="Enter Technical Skills" required>
                   </div>
                   <div class="form-group">
                       <div class="col-md-2">
@@ -127,22 +129,125 @@
                       <textarea name="profJourney" id="profJourney" rows="6" class="form-control" placeholder="Brief About Your Professional Journey" required></textarea>
                   </div>
                   <div class="form-group">
-                      <label for="Total Experience in yrs" class="col-form-label">Total Experience in yrs</label>
-                      <input type="text" name="totalExperience" id="totalExperience" class="form-control" maxlength="5" placeholder="Total Experience in yrs" onkeypress="return isNumberKey(event)" required>
+                      <label for="Total Experience in yrs" class="col-form-label">Total Experience (Years)</label>
+                      <input type="text" name="totalExperience" id="totalExperience" class="form-control" placeholder="Total Experience (Years)" required>
                   </div>
                   <div class="form-group">
-                      <label for="Relevant Training Experience in yrs" class="col-form-label">Relevant Training Experience in yrs</label>
-                      <input type="text" name="relevantExperience" id="relevantExperience" class="form-control" onkeypress="return isNumberKey(event)" maxlength="5" placeholder="Relevant Training Experience in yrs" required>
+                      <label for="Relevant Training Experience in yrs" class="col-form-label">Relevant Training Experience (Years)</label>
+                      <input type="text" name="relevantExperience" id="relevantExperience" class="form-control" placeholder="Relevant Training Experience (Years)" required>
                   </div>
                   <div class="form-group">
-                      <label for="Organization worked with" class="col-form-label">Organization Worked With</label>
-                      <select id="selectOrgWorkedWith" name="selectOrgWorkedWith" class="form-control" required>
-                        <option value="">-- select --</option>
+                      <label for="Organization worked with" class="col-form-label">Organization Worked With [Latest 5] </label>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">1</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName1" id="orgName1" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName1" id="trainingName1" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered1" id="topicsCovered1" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration1" id="duration1" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="start" name="start" name="monthyear1" id="monthyear1" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">2</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName2" id="orgName2" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName2" id="trainingName2" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered2" id="topicsCovered2" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration2" id="duration2" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="start" name="start" name="monthyear2" id="monthyear2" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">3</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName3" id="orgName3" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName3" id="trainingName3" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered3" id="topicsCovered3" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration3" id="duration3" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="start" name="start" name="monthyear3" id="monthyear3" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">4</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName4" id="orgName4" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName4" id="trainingName4" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered4" id="topicsCovered4" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration4" id="duration4" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="start" name="start" name="monthyear4" id="monthyear4" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">5</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName5" id="orgName5" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName5" id="trainingName5" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered5" id="topicsCovered5" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration5" id="duration5" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" id="start" name="start" name="monthyear5" id="monthyear5" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row text-center">
+                        <button class="btn btn-info btn-sm" id="addAllOrgWorkedWithList">ADD ALL</button>
+                      </div>
+                      <!-- <select id="selectOrgWorkedWith" name="selectOrgWorkedWith" class="form-control" required>
+                        <option value="">Select Org Worked With</option>
                         <option value="Freelancer / Enterpreneur">Freelancer / Enterpreneur</option>
                         <option value="FTE (Full Time Employee)">FTE (Full Time Employee)</option>
                       </select>
                       <input type="text" name="selectOrgWorkedWith" id="selectOrgWorkedWithText" class="form-control" 
-                        placeholder="Enter Organization Name">
+                        placeholder="Enter Organization Name"> -->
                   </div>
                 </div>
               </div>
@@ -159,12 +264,13 @@
                 <div class="panel-heading">Reffered By</div>
                 <div class="panel-body">
                     <div class="form-group">
+
                         <label for="First Name" class="col-form-label">Name of TC Member</label>
-                        <input type="text"  name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member" required>
+                        <input type="text"  name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member">
                     </div>
                     <div class="form-group">
                         <label for="Enrollment Id" class="col-form-label">Enrollment ID</label>
-                        <input type="text" name="enrollmentId" id="enrollmentId" class="form-control" placeholder="Enrollment Id" required>
+                        <input type="text" name="enrollmentId" id="enrollmentId" class="form-control" placeholder="Enrollment Id">
                     </div>
                 </div>
               </div>
@@ -172,12 +278,16 @@
                 <div class="panel-heading">Personal Information</div>
                 <div class="panel-body">
                   <div class="form-group">
+
+ <label for='gallery' class="col-form-label">Add Profile Picture</label>
+                        <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/>
+
                         <label for="First Name" class="col-form-label">First Name</label>
                         <input type="text"  name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Middle Name" class="col-form-label">Middle Name</label>
-                        <input type="text" name="middleName" id="middleName" class="form-control" placeholder="Middle Name" required>
+                        <input type="text" name="middleName" id="middleName" class="form-control" placeholder="Middle Name">
                     </div>
                     <div class="form-group">
                         <label for="Last Name" class="col-form-label">Last Name</label>
@@ -185,15 +295,15 @@
                     </div>
                     <div class="form-group">
                         <label for="Contact" class="col-form-label">Contact</label>
-                        <input type="text" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                        <input type="text" name="contact" id="contactus" class="form-control" placeholder=" Contact" required>
                     </div>
                     <div class="form-group">
                         <label for="Email Id" class="col-form-label">Email Id</label>
                         <input type="text" name="emailId" id="emailId" class="form-control" placeholder="Email Id" required>
                     </div>
                     <div class="form-group">
-                        <label for="Full Postal Address" class="col-form-label">Full Postal Address</label>
-                        <input type="text" name="fullPostalAddress" id="fullPostalAddress" class="form-control" placeholder="Full Postal Address" required>
+                        <label for="Full Postal Address" class="col-form-label">Address</label>
+                        <input type="text" name="fullPostalAddress" id="fullPostalAddress" class="form-control" placeholder="Address" required>
                     </div>
                     <div class="form-group">
                         <label for="Street" class="col-form-label">Street</label>
@@ -205,7 +315,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Pincode" class="col-form-label">Pincode</label>
-                        <input type="text" name="pincode" id="pincode" class="form-control" maxlength="6" onkeypress="return isNumberKey(event)" placeholder="Pincode" required>
+                        <input type="text" name="pincode" id="pincode" class="form-control" placeholder="Pincode" required>
                     </div>
                     <div class="form-group">
                         <label for="State" class="col-form-label">State</label>
@@ -214,16 +324,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Confirm Your Identity" class="col-form-label">Confirm Your Identity</label>
-                        <input type="file" name="identity" id="identity" placeholder="Identity" required />
+                        <label for="Confirm Your Identity" class="col-form-label">Please upload the following documents: </label>
+                          <br><label for="Confirm Your Identity" class="col-form-label">Aadhar Card [Optional] </label>
+                        <input type="file" name="aadharIdentity" id="aadharIdentity" placeholder="Identity" />
+                          <br><label for="Confirm Your Identity" class="col-form-label">PAN Card</label>
+                        <input type="file" name="panIdentity" id="panIdentity" placeholder="Identity" required />
+                          <br><label for="Confirm Your Identity" class="col-form-label">Cancelled Cheque</label>
+                        <input type="file" name="canceledCheckIdentity" id="canceledCheckIdentity" placeholder="Identity" required />
                     </div>
                   </div>
               </div>
               <div class="form-group">
                   <label class="col-form-label">Form Submission T&C</label><br>
-                  <label class="readAndAgree"><input type="checkbox"  name="readAndAgree" id="readAndAgree" required>
-                    I have read and agree to all the terms and conditions mentioned above
-                  </label>
               </div>
               <div class="form-group">
                   <label class="col-form-label" style="font-size:16px;font-weight:bold">CODE OF CONDUCTS FOR MEMBERS</label><br>
@@ -263,6 +375,10 @@
                   </ul>
               </div>
             </div>
+<label class="readAndAgree"><input type="checkbox"  name="readAndAgree" id="readAndAgree" required>
+                    I agree to all the terms and conditions mentioned above
+                  </label>
+
           </div>
           <button class='btn btn-primary btn-md' id="btnSave" style="background-color:#2bcdc1;" type="submit">SAVE</button>
         </form>
@@ -277,7 +393,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+            <p>Designed & Developed by <a href="http://cerbosys.com/">Cerbosys</a></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -295,7 +411,7 @@
   <!-- End footer -->
 
   <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <!-- Bootstrap -->
   <script src="assets/js/bootstrap.js"></script>

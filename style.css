@@ -642,7 +642,7 @@ img{
 }
 
 .title-area .title {	
-	font-size: 35px;
+	font-size: 30px;
 	font-weight: 700;
 	line-height: 35px;
 	text-transform: uppercase;
@@ -963,22 +963,19 @@ img{
 
 #pricing-table{
 	background-color: #f8f8f8;
-	display: inline;
 	float: left;
 	padding: 70px 0;
 	width: 100%;
 }
 
 .pricing-table-content{
-	display: inline;
 	float: left;
-	margin-top: 50px;
+	margin: 50px 0;
 	width: 100%;
 }
 
 .single-table-price {
   background-color: #fff;
-  display: inline;
   float: left;
   text-align: center;
   width: 100%;
@@ -988,7 +985,6 @@ img{
 .price-header {
   background-color: #383838;
   color: #ccc;
-  display: inline;
   float: left;
   width: 100%;
 }
@@ -1014,7 +1010,7 @@ img{
 }
 
 .price .price-up{
-	font-size: 60%;
+	font-size: 30%;
 }
 
 .price .price-down{
@@ -1070,11 +1066,6 @@ img{
 .featured-price .price-title{
 	background-color: #383838;
 }
-
-.featured-price .purchase-btn{
-	color: #fff;
-}
-
 
 /*--------------------*/
 /* OUR TEAM */
@@ -1492,8 +1483,6 @@ img{
 
 #footer{
   background-color: #171717;
-  display: inline;
-  float: left;
   padding: 25px 0;
   width: 100%;
 }
@@ -2151,19 +2140,13 @@ img{
 /* CONTACT PAGE */
 /*--------------------*/
 
-#contact{
-  margin-bottom: 100px;
-}
-
 .cotact-area{
-  display: inline;
   float: left;
   margin-top: 50px;
   width: 100%;
 }
 
 .contact-area-left{
-  display: inline;
   float: left;
   width: 100%;
 }
@@ -2747,3 +2730,63 @@ img{
           transform: rotate(360deg);
       }
   }
+
+.price-article img {
+  width:100%;
+  height:600px;
+}
+.price-article1 {
+  background-image: url('./assets/images/events/NLP\ 19th\ July.jpg');
+  background-size: cover;
+  height: 600px;
+}
+
+.price-article2 {
+  background-image: url('./assets/images/events/Automobile\ 12th\ July.jpg');
+  background-size: cover;
+  height: 600px;
+}
+
+.price-article3 {
+  background-image: url('./assets/images/events/Graphoanalysis\ 29th\ July.png');
+  background-size: cover;
+  height: 600px;
+}
+
+.price-article4 {
+  background-image: url('./assets/images/events/NLP\ 21st\ Sept-2018\ to\ 1st\ Oct\ 2018.jpg');
+  background-size: cover;
+  height: 600px;
+}
+
+.abt-profile { 
+  border:1px solid #ABABAB;
+  border-radius: 4px;
+  padding-right: 20px 20px;
+  height: 360px;
+}
+
+.abt-profile .container1 {
+  padding:30px 10px;
+  width: 260px;
+    margin: 0 auto;
+}
+
+.abt-profile .container1 .text4 {
+  text-align: center;
+}
+
+
+.ourteam { 
+  margin:60px 0;
+}
+
+.container1:hover img {
+  animation: zoomin 10s ease-in infinite;
+  transition: all .5s ease-in-out;
+}
+
+.events {
+  height:740px;
+  margin:20px 0;
+}

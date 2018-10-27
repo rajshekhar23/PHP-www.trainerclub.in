@@ -1,7 +1,7 @@
-<?php
-    include_once('\PHPMailer\PHPMailer.php');
-    include_once('\PHPMailer\SMTP.php');
-    include_once('\PHPMailer\Exception.php');
+﻿<?php
+    include_once('PHPMailer/PHPMailer.php');
+    include_once('PHPMailer/SMTP.php');
+    include_once('PHPMailer/Exception.php');
     $email = $_POST["email"];
     $mail = new PHPMailer\PHPMailer\PHPMailer(); // create a new object
     $mail->IsSMTP(); // telling the class to use SMTP
@@ -13,7 +13,7 @@
     $mail->Password = "manvi@123"; // GMAIL password
     //Typical mail data
     $mail->AddAddress($email);
-    //$mail->AddCC('rajb2381991@gmail.com');
+    //$mail->AddCC('jain4manvi@gmail.com');
     $mail->SetFrom('trainersclubdummy@gmail.com','Trainer Club');
     $mail->Subject = "TC - Privilege membership Plan with Fees";
     $mail->Body = "<h4>TC - Privilege membership Plan with Fees</h4><br><table border='1'>

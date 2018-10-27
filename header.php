@@ -27,7 +27,7 @@
                 <li>
                   <div class="phone">
                     <i class="fa fa-phone"></i>
-                    ++91-8830775969
+                    +91-8830775969
                   </div>
                 </li>
                 <li>
@@ -45,7 +45,8 @@
                 if (isset($_SESSION["user_role"])) {
                   echo '<a class="login modal-form" id="logout">Logout</a>';
                 } else {              
-                  echo '<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Login / Sign Up</a>';
+                  echo '<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Login</a>';
+                  echo '<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Sign Up</a>';
                 }
                 ?>
             </div>

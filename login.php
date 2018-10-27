@@ -7,7 +7,7 @@
           <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
         </div>
         <div class="modal-body">
-          <form name="login" action="backend/loginOperation.php" method="POST">
+          <form name="login" method="POST">
             <div class="form-group">
               <input type="text" placeholder="User name" class="form-control" name="user_name" required>
             </div>
@@ -50,9 +50,9 @@
               <input type="password" placeholder="Password" class="form-control" name="password" required>
             </div>
             <div class="form-group">
-                <label for="Corporate Trainer" class="col-form-label">Login As</label>
+                <label for="Corporate Trainer" class="col-form-label">Signup As</label>
                 <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Client" checked name="user_role">Client</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>              
+                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>
             </div>
             <div class="signupbox">
               <span>Already got account? <a id="login-btn" href="#">Sign In.</a></span>

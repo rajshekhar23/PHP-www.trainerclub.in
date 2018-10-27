@@ -7,8 +7,8 @@ require('backend/dbConnect.php');
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Trainer's Club : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png"/>
+  <title> Trainer's Club : Home</title>
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png"/>
   <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -93,70 +93,6 @@ require('backend/dbConnect.php');
       </a>
     </div>
     </div>
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-  <span class="dot" onclick="currentSlide(4)"></span> 
-  <span class="dot" onclick="currentSlide(5)"></span> 
-  <span class="dot" onclick="currentSlide(6)"></span> 
-</div>
-
-  <script>
-  var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block"; 
-  dots[slideIndex-1].className += " active";
-}
-</script>
-<!-- Automatic Slideshow -->
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 5 seconds
-}
-</script>
-  
-  
   <!-- End slider -->
 
   <!-- Start Feature -->
@@ -167,11 +103,7 @@ function showSlides() {
           <div class="title-area">
             <h2 class="title">Feature Video</h2>
             <span class="line"></span>
-
-
-<!--$(".youtube-video").click(function(e){
-    $(this).children('a').html
-('--><br></br>
+<br></br>
 <div class="vid"><iframe width="420" height="315" src="https://www.youtube.com/embed/'+ $(this).attr('id') +'?autoplay=1" frameborder="0" allowfullscreen></iframe></div>
 <!--');
    return false;
@@ -241,12 +173,23 @@ function showSlides() {
     </div>
   </section>
   <!-- End Feature -->
+  <section id="JobsListing">
+    <div class="container">
+      <div class="title-area">
+        <h2 class="title">Job Listing</h2>
+      </div>
+      <div class="row">
+        <div id="jobs">
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="upcomingevents">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="title-area">
-            <h2 class="title">Upcoming Events</h2>
+            <h2 class="title">Training Events</h2>
             <span class="line"></span>
             <p></p>
           </div>
@@ -254,96 +197,68 @@ function showSlides() {
         <div class="col-md-12">
           <div class="pricing-table-content">
             <div class="row">
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-12 col-xs-12 events">
                 <div class="single-table-price wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">
                   <div class="price-header">
-                    <span class="price-title">EVENT TYPE</span>
+                    <!-- <span class="price-title">EVENT TYPE</span> -->
                     <div class="price">
-                      <sup class="price-up">EVENT NAME</sup>
+                      <sup class="price-up">NLP - Neuro Logistics Programming</sup>
                       
                       <span class="price-down"></span>
                     </div>
                   </div>
                   <div class="price-article">
-                    <ul>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                    </ul>
+                    <img src="./assets/images/events/NLP 19th July.jpg" alt="">
                   </div>
                   <div class="price-footer">
                     <a class="purchase-btn" href="#">EXPLORE</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-12 col-xs-12 events">
                 <div class="single-table-price wow fadeInUp" data-wow-duration="0.75s" data-wow-delay="0.75s">
                   <div class="price-header">
-                    <span class="price-title">EVENT TYPE</span>
+                    <!-- <span class="price-title">EVENT TYPE</span> -->
                     <div class="price">
-                      <sup class="price-up">EVENT NAME</sup>
+                      <sup class="price-up">Automobile</sup>
                       
                       <span class="price-down"></span>
                     </div>
                   </div>
-                  <div class="price-article">
-                    <ul>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                    </ul>
+                  <div class="price-article price-article2">
                   </div>
                   <div class="price-footer">
                     <a class="purchase-btn" href="#">EXPLORE</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-12 col-xs-12 events">
                 <div class="single-table-price featured-price wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
                   <div class="price-header">
-                    <span class="price-title">EVENT TYPE</span>
+                    <!-- <span class="price-title">EVENT TYPE</span> -->
                     <div class="price">
-                      <sup class="price-up">EVENT NAME</sup>
+                      <sup class="price-up">GraphoAnalysis</sup>
                       
                       <span class="price-down"></span>
                     </div>
                   </div>
-                  <div class="price-article">
-                    <ul>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                    </ul>
+                  <div class="price-article price-article3">
                   </div>
                   <div class="price-footer">
                     <a class="purchase-btn" href="#">EXPLORE</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-12 col-xs-12 events">
                 <div class="single-table-price wow fadeInUp" data-wow-duration="1.15s" data-wow-delay="1.15s">
                   <div class="price-header">
-                    <span class="price-title">EVENT TYPE</span>
+                    <!-- <span class="price-title">EVENT TYPE</span> -->
                     <div class="price">
-                      <sup class="price-up">EVENT Name</sup>
-                      
+                      <sup class="price-up">NLP - Certification Program</sup>                      
                       <span class="price-down"></span>
                     </div>
                   </div>
-                  <div class="price-article">
-                    <ul>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                      <li>DESP</li>
-                    </ul>
+                  <div class="price-article price-article4">
                   </div>
                   <div class="price-footer">
                     <a class="purchase-btn" href="#">EXPLORE</a>
@@ -362,7 +277,7 @@ function showSlides() {
 
 
   <!-- Start Clients brand -->
-  <section id="clients-brand">
+  <!-- <section id="clients-brand">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -413,7 +328,7 @@ function showSlides() {
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End Clients brand -->
 
   
@@ -425,7 +340,7 @@ function showSlides() {
         <div class="row">
           <div class="col-md-12">
             <div class="subscribe-area">
-              <h2 class="wow fadeInUp">Subscribe Newsletter</h2>
+              <h2 class="wow fadeInUp">Subscribe</h2>
               <form action="" class="subscrib-form wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">
                 <input type="text" placeholder="Enter Your E-mail..">
                 <button class="subscribe-btn" type="submit">Submit</button>
@@ -439,26 +354,9 @@ function showSlides() {
   <!-- End subscribe us -->
 
   <!-- Start footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-left">
-            <p>Designed & Develop by <a href="http://www.cerbosys.com/">cerbosys.com</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-right">
-            <a href="index.php"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php
+    include_once('footer.php');
+  ?>
   <!-- End footer -->
 
   <!-- jQuery library -->
@@ -483,8 +381,34 @@ function showSlides() {
  
   <!-- Custom js -->
   <script type="text/javascript" src="assets/js/custom.js"></script>
+  <script type="text/javascript" src="assets/js/customTrainer.js"></script>
   <script>
+      function getAllPostedjobs() {
+        $.post("./backend/allProducts.php",{
+          flag:"getAllPostedjobs"
+        },function(data) {
+          console.table(data);
+          if(data.length > 0) {
+            var content = '<table class="table table-bordered table-striped table-condensed">'+
+            '<tr class="text-center">'+
+            '<th class="text-center"> Job Title </th>'+
+            '<th class="text-center">Job Location</th>'+
+            '</tr>';
+            data.forEach(job => {
+              content += '<tr class="text-center">' +
+              '<td>'+ job.jobTitle +'</td>'+
+              '<td>'+ job.jobDescription +'</td>'+
+            '</tr>';
+            });
+            content +="</table>";
+            $('#jobs').html(content);            
+          } else {
+            $('#jobs').html('No Jobs Available');
+          }
+        });
+      }
       $(document).ready(function() {
+          getAllPostedjobs();
           $("form[name='login']").submit(function() {
               var user_name = $("form :input[name='user_name']").val();
               var user_password = $("form :input[name='user_password']").val();
@@ -498,6 +422,25 @@ function showSlides() {
               },function(data) {
                   alert(data);
               });
+          });
+          $("form[name='login']").on('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+              type: 'post',
+              url: 'backend/loginOperation.php',
+              processData: false,
+              contentType: false,
+              data: formData,
+              success: function (data) {
+                console.log('data',data);
+                alert(data);
+                if(data > 0) {
+                  alert('Trainer enrolled successfully');
+                  window.location.href="trainerProfile.php?trainerId="+data;
+                }
+              }
+            });
           });
           $("#logout,#signout").click(function(){
             event.preventDefault();

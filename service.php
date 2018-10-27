@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Trainer's Club : Service</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png"/>
+    <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png"/>
     <!-- Font Awesome -->
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
@@ -59,14 +59,14 @@
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="single-page-header-left">
-              <h2>Service</h2>
+              <h2>Services</h2>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="single-page-header-right">
               <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li class="active">Service</li>
+                <li class="active">Services</li>
               </ol>
             </div>
           </div>
@@ -82,9 +82,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="title-area">
-            <h2 class="title">Our Services</h2>
+            <h2 class="title"><br>Our Services</h2>
             <span class="line"></span>
-            <p></p>
+            <p>For any service related query please email us on <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@trainersclub.in">info@trainersclub.in</a></p>
           </div>
         </div>
         <div class="col-md-12">
@@ -104,11 +104,12 @@
                 <div class="single-service wow zoomIn">
                   <i class="fa fa-magic service-icon"></i>
                   <h4 class="service-title">Training Resources</h4>
-                  <p style="text-align:justify"><b>a)	City-wise training rooms –</b> Trainers who travel to different cities for their assignments can easily book training facilities with us at best rates.<br>
-                <b>b)	Business meeting rooms –</b> Book meeting rooms for professional meetings.<details><summary> Read More....</summary>
-                <p style="text-align:justify"><b>c)	Extra Support –</b> Trainers can request for extra support in-case they get stuck in any city by just calling or mailing us and our team will try their best to serve you.
-                  <br><b>“For services like Cab booking, local support etc. Please click on Extra Support.”</b>
-                  <br><b><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@trainerclub.in" target="_blank">Email Us</a> </b></p></details></p>
+                  <p style="text-align:justify"><b>	City-wise training rooms –</b> Trainers who travel to different cities for their assignments can easily book training facilities with us at best rates.<br>
+                <b>Business meeting rooms –</b> Book meeting rooms for professional meetings.
+                <p style="text-align:justify"><b>	Extra Support –</b><b><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@trainerclub.in" target="_blank">Email Us</a> </b>
+
+                  <br><b>For services like Cab booking, local support etc.</b>
+                  </p></p>
                 </div>
               </div>
               <!-- End single service -->
@@ -117,13 +118,13 @@
                 <div class="single-service wow zoomIn">
                   <i class="fa fa-magic service-icon"></i>
                   <h4 class="service-title">Certification Courses </h4>
-                  <p style="text-align:justify">	a)	Soft skill Certification course<br>
-						b)	Image Consulting Certification course<br>
-						c)	Banking Certification course<br>
-						d)	Finance Certification course<br>
-						e)	Automobile Certification course<br>
-						f)	Insurance Certification course<br>
-						g)	IT  Certification course
+                  <p style="text-align:justify">		Soft skill Certification course<br>
+							Image Consulting Certification course<br>
+							Banking Certification course<br>
+							Finance Certification course<br>
+							Automobile Certification course<br>
+							Insurance Certification course<br>
+							IT  Certification course
 				</p>
                 </div>
               </div>
@@ -150,7 +151,18 @@
                   <p style="text-align:justify">All you trainers require continuous professional support for marketing and branding to enhance your expertise and knowledge. Our team of experts analyses your caliber and current market position to showcase your finest to the world.</p>
                 </div>
               </div>
+
+<div class="col-md-4 col-sm-6">
+                <div class="single-service wow zoomIn">
+                  <i class="fa fa-magic service-icon"></i>
+                  <h4 class="service-title">Business Consultation and Marketing</h4>
+                  <p style="text-align:justify"> Trainers Club provides customized marketing solutions and business consulting services to help trainers generate revenue.</p>
+                </div>
+              </div>
+
           </div>
+
+
   </section>
   <!-- End Service --> 
 
@@ -161,7 +173,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="subscribe-area">
-              <h2 class="wow fadeInUp">Subscribe Newsletter</h2>
+              <h2 class="wow fadeInUp">Subscribe</h2>
               <form action="" class="subscrib-form wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">
                 <input type="text" placeholder="Enter Your E-mail..">
                 <button class="subscribe-btn" type="submit">Submit</button>
@@ -205,10 +217,136 @@
         </div>
       </div>      
     </div>
-  </div>
-  <?php
-    include_once('footer.php');
-  ?>
+<div>    
+  <footer style="padding:25px 0;background-color: #171717;">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-6 col-sm-6" style="margin-top: 25px;">
+                <div class="footer-left">
+                <p>Designed & Developed by <a href="http://www.cerbosys.com/">Cerbosys</a></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6" style="margin-top: 25px;">
+                <div class="footer-right">
+                <a href="https://www.facebook.com/trainers.club.14"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+                <a href="https://www.linkedin.com/in/trainers-club-4b0956166/"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+<style>
+#toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #ABABAB;
+    color: #000;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 100000;
+    left: 0;right:0;
+    top: 10px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast #img{
+	width: 100px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #111;
+    color: #fff;
+}
+#toast #desc{
+
+    
+    color: #000;
+   
+    padding: 16px;
+    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+</style>
+<div id="toast"><div id="img">Message</div><div id="desc"></div></div>
+<script>
+    function toast(message) {
+        var x = document.getElementById("toast")
+        x.className = "show";
+        document.getElementById("desc").innerHTML = message;
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+    }
+</script>
+
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
   <!-- Include all compiled plugins (below), or include individual files as needed -->

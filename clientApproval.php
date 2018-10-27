@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Intensely : Contact</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png"/>
+    <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png"/>
     <!-- Font Awesome -->
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
@@ -177,7 +177,7 @@
           <!-- TEXT BASED LOGO -->
           <a class="navbar-brand" href="index.php">Intensely</a>              
           <!-- IMG BASED LOGO  -->
-          <!-- <a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="logo"></a> -->                    
+          <!-- <a class="navbar-brand" href="index.php"><img src="assets/images/logonew.png" alt="logo"></a> -->                    
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
@@ -292,7 +292,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-           <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+           <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">

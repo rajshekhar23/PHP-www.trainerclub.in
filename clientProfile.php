@@ -1,7 +1,7 @@
 <?php
   if(isset($_GET["clientId"])) {
     require('backend/dbConnect.php');
-    $query = "select * from clients where id=" .$_GET["clientId"];
+    $query = "select * from clients where client_id=" .$_GET["clientId"];
     $result = mysqli_query($conn,$query);
     $rows = mysqli_num_rows($result);
     if( $rows > 0) {
@@ -15,8 +15,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intensely : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png" />
+  <title>Trainer's Club</title>
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
   <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -69,6 +69,7 @@
   <?php
     include_once('header.php');
     include_once('menu.php');
+    include_once('login.php');
   ?>
   <!-- End header -->
 
@@ -77,82 +78,12 @@
   
   <!-- END MENU -->
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-
-  <!-- Start login modal window -->
-  <div aria-hidden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
-    <div class="modal-dialog">
-      <!-- Start login section -->
-      <div id="login-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
-        </div>
-        <div class="modal-body">
-          <form action="backend/loginOperation.php" method="POST">
-            <div class="form-group">
-              <input type="text" placeholder="User name" class="form-control" name="user_name" required>
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="user_password" required>
-            </div>
-            <div class="form-group">
-                <label for="Corporate Trainer" class="col-form-label">Login As</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Client"  checked name="user_role">Client</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>              
-            </div>
-             <div class="loginbox">              
-              <button class="btn signin-btn" type="submit" id="sigin-btn">SIGN IN</button>
-            </div>                    
-          </form>
-        </div>
-        <div class="modal-footer footer-box">
-          <a href="#">Forgot password ?</a>
-          <span>No account ? <a id="signup-btn" href="#">Sign Up.</a></span>            
-        </div>
-      </div>
-      <!-- Start signup section -->
-      <div id="signup-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-lock"></i>Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          <form action="backend/signupOperation.php" method="post">
-            <div class="form-group">
-              <input placeholder="Name" class="form-control" name="name" required>
-            </div>
-            <div class="form-group">
-              <input placeholder="Username" class="form-control" name="user_name" required>
-            </div>
-            <div class="form-group">
-              <input placeholder="Email" class="form-control" name="email" required>
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="Corporate Trainer" class="col-form-label">Login As</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Client" checked name="user_role">Client</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>              
-            </div>
-            <div class="signupbox">
-              <span>Already got account? <a id="login-btn" href="#">Sign In.</a></span>
-            </div>
-            <div class="loginbox">
-              <button class="btn signin-btn" type="submit">SIGN UP</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End login modal window -->
-
   <!-- Start contact section  -->
-  <section id="contact">
+  <section id="contact" style="margin-bottom:160px;">
     <div class="container">
       <div class="row">
-        <h2 class="text-center formTitle"> Client's Enrolled Profile </h2>
+        <p class="pull-left"><h2 class="text-center formTitle"> Profile </h2></p>
+        <p class="pull-right" style="margin-top:20px;"><a class="btn btn-info" href="postjob.php">Post Job</a></p/>
         <form name="trainerForm" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="panel panel-default">
@@ -160,10 +91,10 @@
                   <div class="col-md-3">
                     Profile Picture / Indentity <br><br>
                     <div class = "thumbnail">
-                    <?php echo '<img src = "./backend/uploads/clientIdentity-'. $row["id"].'.jpg" alt = "Client\'s identity">'; ?>
+                    <?php echo '<img src = "./backend/uploads/clientIdentity-'. $row["client_id"].'.jpg" alt = "Client\'s identity">'; ?>
                     </div>
                   </div>
-                  <div class="col-md-8" style="border-left:1px solid #ddd;"> <br><br>
+                  <div class="col-md-8" style="border-left:1px solid #ddd;">
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Client Name :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['clientname']?></label>
@@ -196,7 +127,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">

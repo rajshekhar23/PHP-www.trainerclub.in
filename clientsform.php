@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intensely : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png" />
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
   <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -109,7 +109,7 @@
           <!-- TEXT BASED LOGO -->
           <!-- <a class="navbar-brand" href="index.php">TRAINER'S CLUB</a> -->
           <!-- IMG BASED LOGO  -->
-          <a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="logo" style="width:80px;height:50px;"></a>
+          <a class="navbar-brand" href="index.php"><img src="assets/images/logonew.png" alt="logo" style="width: 130px;height: 90px;"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
@@ -253,7 +253,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">

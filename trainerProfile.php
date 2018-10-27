@@ -1,11 +1,12 @@
 <?php
   if(isset($_GET["trainerId"])) {
     require('backend/dbConnect.php');
-    $query = "select * from trainers where id=" .$_GET["trainerId"];
+    $query = "select * from trainers where trainer_id=" .$_GET["trainerId"];
     $result = mysqli_query($conn,$query);
     $rows = mysqli_num_rows($result);
     if( $rows > 0) {
       $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $orgList = json_decode($row["selectOrgWorkedWith"]);
     }   
   }
 ?>
@@ -15,8 +16,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intensely : Contact</title>
-  <link rel="shortcut icon" type="image/icon" href="assets/images/logo.png" />
+  <title>Trainer's Club</title>
+  <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
   <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
@@ -62,14 +63,11 @@
   </div>
   <!-- END PRELOADER -->
 
-  <!-- SCROLL TOP BUTTON -->
-  <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-  <!-- END SCROLL TOP BUTTON -->
-
   <!-- Start header -->
   <?php
     include_once('header.php');
     include_once('menu.php');
+    include_once('login.php');
   ?>
   <!-- End header -->
 
@@ -79,89 +77,29 @@
   <!-- END MENU -->
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 
-  <!-- Start login modal window -->
-  <div aria-hidden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
-    <div class="modal-dialog">
-      <!-- Start login section -->
-      <div id="login-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
-        </div>
-        <div class="modal-body">
-          <form action="backend/loginOperation.php" method="POST">
-            <div class="form-group">
-              <input type="text" placeholder="User name" class="form-control" name="user_name" required>
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="user_password" required>
-            </div>
-            <div class="form-group">
-                <label for="Corporate Trainer" class="col-form-label">Login As</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Client"  checked name="user_role">Client</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>              
-            </div>
-             <div class="loginbox">              
-              <button class="btn signin-btn" type="submit" id="sigin-btn">SIGN IN</button>
-            </div>                    
-          </form>
-        </div>
-        <div class="modal-footer footer-box">
-          <a href="#">Forgot password ?</a>
-          <span>No account ? <a id="signup-btn" href="#">Sign Up.</a></span>            
-        </div>
-      </div>
-      <!-- Start signup section -->
-      <div id="signup-content" class="modal-content">
-        <div class="modal-header">
-          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-lock"></i>Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          <form action="backend/signupOperation.php" method="post">
-            <div class="form-group">
-              <input placeholder="Name" class="form-control" name="name" required>
-            </div>
-            <div class="form-group">
-              <input placeholder="Username" class="form-control" name="user_name" required>
-            </div>
-            <div class="form-group">
-              <input placeholder="Email" class="form-control" name="email" required>
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="Corporate Trainer" class="col-form-label">Login As</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Client" checked name="user_role">Client</label>
-                <label class="radio-inline" style="line-height: 40px;padding: 1px 30px;"><input type="radio" value="Trainer" name="user_role">Trainer</label>              
-            </div>
-            <div class="signupbox">
-              <span>Already got account? <a id="login-btn" href="#">Sign In.</a></span>
-            </div>
-            <div class="loginbox">
-              <button class="btn signin-btn" type="submit">SIGN UP</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End login modal window -->
-
   <!-- Start contact section  -->
   <section id="contact">
     <div class="container">
       <div class="row">
-        <h2 class="text-center formTitle"> Trainer's Enrolled Profile </h2>
+        <h2 class="text-center formTitle"> Profile </h2>
         <form name="trainerForm" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="col-md-3">
-                    Profile Picture / Indentity <br><br>
+                    Aadhar Indentity <br><br>
                     <div class = "thumbnail">
-                        <img src = "./backend/uploads/trainerIdentity-2.png" alt = "Trainer\'s identity">
+                        <img src =<?php echo "./backend/uploads/trainerAadharIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                    </div>
+                    <br>
+                    Pan Indentity <br><br>
+                    <div class = "thumbnail">
+                        <img src =<?php echo "./backend/uploads/trainerPanIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                    </div>
+                    <br>
+                    Cancelled Check Indentity <br><br>
+                    <div class = "thumbnail">
+                        <img src =<?php echo "./backend/uploads/trainerCancelledCheckIdentity-".$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
                     </div>
                   </div>
                   <div class="col-md-8" style="border-left:1px solid #ddd;"> <br><br>
@@ -174,8 +112,12 @@
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['subCategory']?></label>
                     </div>
                     <div class="form-group">
-                      <label for="Select Trainer" class="col-form-label" >Selected Soft Skill :</label>
+                      <label for="Select Trainer" class="col-form-label" >Soft Skills :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['selectSoftSkills']?></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Select Trainer" class="col-form-label" >Technical Skills :</label>
+                      <label for="Select Trainer" class="col-form-label"><?php echo $row['technicalSkills']?></label>
                     </div>
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Willing To Travel :</label>
@@ -210,8 +152,27 @@
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['relevantExperience']?></label>
                     </div>
                     <div class="form-group">
-                      <label for="Select Trainer" class="col-form-label" >Organization Worked With :</label>
-                      <label for="Select Trainer" class="col-form-label"><?php echo $row['selectOrgWorkedWith']?></label>
+                      <label for="Select Trainer" class="col-form-label">Organization Worked With :</label>
+                      <table class="table table-bordered table-striped table-condensed">
+                          <tr class="info">
+                            <th>Org Name</th>
+                            <th>Training Name</th>
+                            <th>Topics Covered</th>
+                            <th>Duration</th>
+                            <th>Month/Year</th>
+                          </tr>
+                          <?php
+                            for ($i=0; $i <5; $i++) {
+                          ?>
+                          <tr>
+                            <td><?php echo $orgList[$i]->orgName;?></td>
+                            <td><?php echo $orgList[$i]->trainingName;?></td>
+                            <td><?php echo $orgList[$i]->topicsCovered;?></td>
+                            <td><?php echo $orgList[$i]->orgName;?></td>
+                            <td><?php echo $orgList[$i]->duration;?></td>
+                          </tr>
+                            <?php } ?>
+                        </table>
                     </div>
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >TC Member Name :</label>
@@ -256,7 +217,7 @@
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Uploaded Gallery :</label> <br>
                       <?php
-                        $dir='backend/uploads/trainer/'.$row['id'].'/*';
+                        $dir='backend/uploads/trainer/'.$row['trainer_id'].'/*';
                         $fileList = glob($dir);
                         foreach($fileList as $filename){
                           echo '<div class = "thumbnail">
@@ -281,7 +242,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">
