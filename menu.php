@@ -1,4 +1,4 @@
-<section id="menu-area" style="margin:13px 0;">
+<section id="menu-area" style="margin-bottom:20px;margin-top:5px;">
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -14,7 +14,7 @@
           <!-- TEXT BASED LOGO -->
           <!-- <a class="navbar-brand" href="index.php">TRAINER'S CLUB</a> -->
           <!-- IMG BASED LOGO  -->
-          <a href="index.php"><img src="assets/images/logonew.png" alt="logo" style="width: 130px;height: 90px;"></a>
+          <a href="index.php"><img src="assets/images/logonew.png" alt="logo" style="width: 130px;height: 70px;"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
@@ -32,6 +32,7 @@
                   <ul class="dropdown-menu">';
                   if($_SESSION["user_role"] == 'Trainer') {                    
                     echo '<li><a href="editTrainerform.php?trainerId='.$_SESSION["trainerId"].'">Edit Profile</a></li>';
+                    echo '<li><a href="trainerProfile.php?trainerId='.$_SESSION["trainerId"].'">View Profile</a></li>';
                   } else {
                     echo '<li><a href="editclientsform.php?clientId='.$_SESSION["clientId"].'">Edit Profile</a></li>';
                     echo '<li><a href="clientProfile.php?clientId='.$_SESSION["clientId"].'">View Profile</a></li>';

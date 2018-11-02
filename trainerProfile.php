@@ -6,6 +6,7 @@
     $rows = mysqli_num_rows($result);
     if( $rows > 0) {
       $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+      print_r($row);
       $orgList = json_decode($row["selectOrgWorkedWith"]);
     }   
   }
@@ -49,8 +50,11 @@
 
   .thumbnail {
     width: 170px;
-    min-height:200px;
     display:inline-block;
+  }
+
+  .thumbnail img {
+    height: 208px;
   }
   </style>
 </head>
@@ -89,17 +93,17 @@
                   <div class="col-md-3">
                     Aadhar Indentity <br><br>
                     <div class = "thumbnail">
-                        <img src =<?php echo "./backend/uploads/trainerAadharIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                        <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/AadharIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
                     </div>
                     <br>
                     Pan Indentity <br><br>
                     <div class = "thumbnail">
-                        <img src =<?php echo "./backend/uploads/trainerPanIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                      <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/CancelledCheckIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
                     </div>
                     <br>
                     Cancelled Check Indentity <br><br>
                     <div class = "thumbnail">
-                        <img src =<?php echo "./backend/uploads/trainerCancelledCheckIdentity-".$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                    <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/PanIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
                     </div>
                   </div>
                   <div class="col-md-8" style="border-left:1px solid #ddd;"> <br><br>
@@ -220,9 +224,11 @@
                         $dir='backend/uploads/trainer/'.$row['trainer_id'].'/*';
                         $fileList = glob($dir);
                         foreach($fileList as $filename){
-                          echo '<div class = "thumbnail">
-                            <img src = "'.$filename.'" alt = "Trainer\'s identity">
-                          </div>';
+                        if(is_file($filename)) {
+                            echo '<div class = "thumbnail">
+                              <img src = "'.$filename.'" alt = "Trainer\'s identity">
+                            </div>';
+                        }
                        }
                       ?>
                     </div>

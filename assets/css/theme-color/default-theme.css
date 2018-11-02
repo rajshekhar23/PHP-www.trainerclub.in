@@ -2,9 +2,13 @@
 Template Design By MarkUps.
 Author URI : http://www.markups.io/
 ========================================*/
+.container {
+  width: 1270px !important;
+}
 .login:hover,
 .login:focus{
-  background-color: #2bcdc1; 
+  background-color: #ccc;
+  color:#2bcdc1;
 }
 
 .navbar-brand {

@@ -389,7 +389,7 @@
             email:$("#email").val()
           },function(data) {
             $(".loading").css("display", "none");
-            alert(data);            
+            alert(data);
             $("#myModal").modal('hide');
           });
       });

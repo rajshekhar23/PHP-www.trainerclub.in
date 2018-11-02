@@ -53,46 +53,72 @@ require('backend/dbConnect.php');
   <!-- End login modal window -->
 
   <!-- Start slider -->
-			
-  <div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 120px;">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+
+<section id="slider">
+    <div class="container">
+      <div id="myCarousel" class="carousel"  data-interval="3000">
       <div class="carousel-inner">
-        <div class="item active">
-          <img src="assets/images/slider1.png" alt="Los Angeles">
-        </div>
-        <div class="item">
-          <img src="assets/images/slider2.png" alt="Los Angeles">
-        </div>
-        <div class="item">
-          <img src="assets/images/slider3.png" alt="Los Angeles">
-        </div>
-        <div class="item">
-          <img src="assets/images/slider4.png" alt="Los Angeles">
-        </div>
-        <div class="item">
-          <img src="assets/images/slider5.png" alt="Los Angeles">
-        </div>
-        <div class="item">
-          <img src="assets/images/slider6.png" alt="Los Angeles">
-        </div>
-      </div>
-      <!-- Left and right controls -->
+          <div class="item" style="">
+              <img src="./assets/images/slides/Slide1.jpg" alt="" class="">
+              <div class="carousel-caption">
+                <h4 class="">Bridging The Gap</h4>
+                <p class="">
+                   TC Trainer's are skillng people globally professionals, Freshers And Students
+                </p>
+              </div>
+          </div>
+          <div class="item active">
+              <img src="./assets/images/slides/Slide2.jpg" alt="" class="">
+              <div class="carousel-caption">
+                <h4 class="">Quick And Easy "Training Solutions"</h4>
+                <p class="">
+                   The Current And Future State of the Corporate Learning Modalities
+                </p>
+              </div>
+          </div>
+          <div class="item" style="">
+              <img src="./assets/images/slides/Slide3.jpg" alt="" class="">
+              <div class="carousel-caption">
+              <h4 class="">We Believe In Facililating</h4>
+                <p class="">"Corporate Trainer is the main source of information"</p>
+                <p class="">"Learning Facililator is the hub via which information is shared"</p>
+              </div>
+          </div>
+          <div class="item" style="">
+              <img src="./assets/images/slides/Slide4.jpg" alt="" class="">
+              <div class="carousel-caption">
+                <h4 class="">Enhance Your Skills</h4>
+                <p class="">
+                   Advanced Certification Courses
+                </p>
+              </div>
+          </div>
+          <div class="item" style="">
+              <img src="./assets/images/slides/Slide5.jpg" alt="" class="">
+              <div class="carousel-caption">
+              <h4 class="">Design And Deliever Your Accredited</h4>
+                <p class="">
+                   Signature Program
+                </p>
+              </div>
+          </div>
+          <div class="item" style="">
+              <img src="./assets/images/slides/Slide6.jpg" alt="" class="">
+              <div class="carousel-caption">
+                <h4 class="">Our Expert Services</h4>
+                <p class="">Training Videos And Corporate Film Making</p>
+              </div>
+          </div>
+      </div>    
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
+          <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
+          <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
-    </div>
-    </div>
+  </div>
+ </div>
+</section>  
   <!-- End slider -->
 
   <!-- Start Feature -->
@@ -173,7 +199,7 @@ require('backend/dbConnect.php');
     </div>
   </section>
   <!-- End Feature -->
-  <section id="JobsListing">
+  <section id="JobsListing" style="margin-bottom:60px;">
     <div class="container">
       <div class="title-area">
         <h2 class="title">Job Listing</h2>
@@ -184,94 +210,161 @@ require('backend/dbConnect.php');
       </div>
     </div>
   </section>
-  <section id="upcomingevents">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+  
+  <section id="upcomingevents" style="margin-bottom:60px;">
+    <div class="row">
+      <div class="col-md-12">
           <div class="title-area">
             <h2 class="title">Training Events</h2>
             <span class="line"></span>
             <p></p>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="pricing-table-content">
-            <div class="row">
-              <div class="col-md-6 col-sm-12 col-xs-12 events">
-                <div class="single-table-price wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">
-                  <div class="price-header">
-                    <!-- <span class="price-title">EVENT TYPE</span> -->
-                    <div class="price">
-                      <sup class="price-up">NLP - Neuro Logistics Programming</sup>
-                      
-                      <span class="price-down"></span>
-                    </div>
-                  </div>
-                  <div class="price-article">
-                    <img src="./assets/images/events/NLP 19th July.jpg" alt="">
-                  </div>
-                  <div class="price-footer">
-                    <a class="purchase-btn" href="#">EXPLORE</a>
-                  </div>
+    </div>
+    <div class="row">
+      <div class="container">
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>NLP - Neuro Logistics Programming</h4>
                 </div>
-              </div>
-              <div class="col-md-6 col-sm-12 col-xs-12 events">
-                <div class="single-table-price wow fadeInUp" data-wow-duration="0.75s" data-wow-delay="0.75s">
-                  <div class="price-header">
-                    <!-- <span class="price-title">EVENT TYPE</span> -->
-                    <div class="price">
-                      <sup class="price-up">Automobile</sup>
-                      
-                      <span class="price-down"></span>
-                    </div>
-                  </div>
-                  <div class="price-article price-article2">
-                  </div>
-                  <div class="price-footer">
-                    <a class="purchase-btn" href="#">EXPLORE</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-sm-12 col-xs-12 events">
-                <div class="single-table-price featured-price wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
-                  <div class="price-header">
-                    <!-- <span class="price-title">EVENT TYPE</span> -->
-                    <div class="price">
-                      <sup class="price-up">GraphoAnalysis</sup>
-                      
-                      <span class="price-down"></span>
-                    </div>
-                  </div>
-                  <div class="price-article price-article3">
-                  </div>
-                  <div class="price-footer">
-                    <a class="purchase-btn" href="#">EXPLORE</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-sm-12 col-xs-12 events">
-                <div class="single-table-price wow fadeInUp" data-wow-duration="1.15s" data-wow-delay="1.15s">
-                  <div class="price-header">
-                    <!-- <span class="price-title">EVENT TYPE</span> -->
-                    <div class="price">
-                      <sup class="price-up">NLP - Certification Program</sup>                      
-                      <span class="price-down"></span>
-                    </div>
-                  </div>
-                  <div class="price-article price-article4">
-                  </div>
-                  <div class="price-footer">
-                    <a class="purchase-btn" href="#">EXPLORE</a>
-                  </div>
-                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 19th July.jpg')">VIEW</button>
               </div>
             </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;color:#2bcdc1;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">19th July,2018</i></span>
+                </p>
+              </li>
+            </ul>
           </div>
-        </div>
+        </div>  
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>Automobile Industry</h4>
+                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Automobile 8th July.jpg')">VIEW</button>
+              </div>
+            </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;color:#2bcdc1;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">8th July,2018</i></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>  
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>GraphoAnalysis</h4>
+                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Graphoanalysis 29th July.png')">VIEW</button>
+              </div>
+            </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">29th July,2018</i></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>  
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>TTT NLP - 7 Days Workshop Program</h4>
+                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 24th Aug.jpg')">VIEW</button>
+              </div>
+            </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;color:#2bcdc1;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">24th Aug,2018</i></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>  
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>NLP - Certification Program</h4>
+                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 13th to 18th Nov-2018.png')">VIEW</button>
+              </div>
+            </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;color:#2bcdc1;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">13th to 24th Aug,2018</i></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>  
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <ul class="eventTop">
+              <li style="background-color: #e4e4e4;">
+                <div class="brows-job-location">
+                  <h4>NLP - Neuro Logistics Programming</h4>
+                </div>
+              </li>
+            </ul>
+            <div class="category-desc">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 21st Sept-2018 to 1st Oct 2018.jpg')">VIEW</button>
+              </div>
+            </div>
+            <ul class="eventBottom">
+              <li style="background-color: #e4e4e4;color:#2bcdc1;">
+                <p>
+                  <span class="brows-job-sallery"><i class="fa fa-calendar">21st Sept to 1st Oct,2018</i></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>  
       </div>
-    </div>
+   </div>
   </section>
-  <!-- End Pricing table -->  
+
 
   <!-- end about -->
 
@@ -389,25 +482,136 @@ require('backend/dbConnect.php');
         },function(data) {
           console.table(data);
           if(data.length > 0) {
-            var content = '<table class="table table-bordered table-striped table-condensed">'+
+            var content ='';
+/*             var content = '<table class="table table-bordered table-striped table-condensed">'+
             '<tr class="text-center">'+
             '<th class="text-center"> Job Title </th>'+
             '<th class="text-center">Job Location</th>'+
+            '<th class="text-center">APPLY</th>'+
             '</tr>';
             data.forEach(job => {
               content += '<tr class="text-center">' +
               '<td>'+ job.jobTitle +'</td>'+
               '<td>'+ job.jobDescription +'</td>'+
+              '<td><button class="btn btn-info btn-md" onclick="applyJob()">APPLY</button></td>'+
             '</tr>';
             });
             content +="</table>";
+ */
+            data.forEach(job => {
+            content += '<div class="col-md-4 col-sm-6">'+
+              '<div class="grid-view brows-job-list">'+
+                '<div class="brows-job-position">'+
+                  '<h3><a href="job-detail.html">'+ job.jobTitle +'</a></h3>'+
+                  '<p><span>'+ job.industryType +'</span></p>'+
+                '</div>'+
+                '<div class="job-position">'+
+                  '<span class="job-num"><button class="btn btn-sm" style="background-color:#2bcdc1;color:#fff;font-weight:600;" onclick=showJobLightBox('+ job.id +')>Apply</button></span>'+
+                '</div>'+
+                '<div class="brows-job-type">'+
+                  '<span class="freelanc">'+ job.positionType +'</span>'+
+                '</div>'+
+                '<ul class="grid-view-caption">'+
+                  '<li style="background-color: #e4e4e4;margin-right:1px;">'+
+                    '<div class="brows-job-location">'+
+                      '<p style="margin: 0 0 0px;margin-top: 0px;padding-top: 6px;"><i class="fa fa-map-marker" style="margin-right:3px;"></i>'+ job.city +'</p>'+
+                    '</div>'+
+                  '</li>'+
+                  '<li style="background-color: #e4e4e4;margin-left:1px;">'+
+                    '<p style="margin: 0 0 0px;margin-top: 0px;padding-top: 6px;"><span class="brows-job-sallery"><i class="fa fa-money" style="margin-right:3px;"></i>$'+ job.salaryMinRange +'-' + job.salaryMaxRange +'</span></p>'+
+                  '</li>'+
+                '</ul>'+
+                '<span class="tg-themetag tg-featuretag">'+ job.jobTitle +'</span>'+
+              '</div>'+
+            '</div>';
+            });
             $('#jobs').html(content);            
           } else {
             $('#jobs').html('No Jobs Available');
           }
         });
       }
-      $(document).ready(function() {
+
+
+    $('#myCarousel').carousel();
+    var winWidth = $(window).innerWidth();
+    $(window).resize(function () {
+
+        if ($(window).innerWidth() < winWidth) {
+            $('.carousel-inner>.item>img').css({
+                'min-width': winWidth, 'width': winWidth
+            });
+        }
+        else {
+            winWidth = $(window).innerWidth();
+            $('.carousel-inner>.item>img').css({
+                'min-width': '', 'width': ''
+            });
+        }
+    });
+
+
+      function applyJob(job) {
+          console.log(job);
+          $.post("./backend/allProducts.php",{
+            flag:"applyJob",
+            jobId:job
+          },function(data) {
+            console.log(data);
+            if(data == true) {
+              toast('Applied successfully');
+              setTimeout(() => {
+                closeLightBox();
+              }, 1500);              
+            } else {
+              toast(data);
+              setTimeout(() => {
+                $("#login-form").css('display','block');
+              }, 2000);
+            }
+          });
+      }
+      
+      function showJobLightBox( job) {
+        $.post("./backend/allProducts.php",{
+            flag:"getJobDesc",
+            jobId:job
+          },function(data) {
+            console.log(data);
+            content = '<div id="myModal" class="modal1">'+
+                  '<span class="cancelJob cursor" onclick="closeLightBox()">&times;</span>'+
+                  '<div class="modal-content">'+
+                    '<div class="mySlides" style="padding:20px;">'+
+                      '<h3 class="text-center">Job Description</h3>'+
+                      '<p style="text-align:justify;margin-top:20px;padding:40px;">'+ data[0].jobDescription +'</p>'+
+                      '<div class="text-center"><button class="btn btn-warning" onclick="applyJob('+ job +')">APPLY</button></div>' +
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+            $('.lightBox').html(content);                
+            $('#myModal').css("display","block");
+          });
+      }
+
+      function showEventLightBox( url) {
+        url = './assets/images/events/'+url;
+        content = '<div id="myModal" class="modal">'+
+                  '<span class="cancel cursor" onclick="closeLightBox()">&times;</span>'+
+                  '<div class="modal-content">'+
+                    '<div class="mySlides">'+
+                      '<img src="'+ url +'" style="width:100%">'+
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+        $('.lightBox').html(content);                
+        $('#myModal').css("display","block");
+      }
+      function closeLightBox() {
+        $('.lightBox').html('');
+        $('#myModal').css("display","none");
+      }
+
+      $(document).ready(function() {          
           getAllPostedjobs();
           $("form[name='login']").submit(function() {
               var user_name = $("form :input[name='user_name']").val();
@@ -450,5 +654,8 @@ require('backend/dbConnect.php');
         });
       });
   </script>
+  <div class="lightBox">
+
+  </div>
   </body>
 </html>

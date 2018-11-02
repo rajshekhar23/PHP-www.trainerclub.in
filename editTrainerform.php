@@ -203,7 +203,11 @@
                     </div>
                     <div class="form-group">
                         <label for="Contact" class="col-form-label">Contact</label>
-                        <input type="text" value="<?php echo $row["contact"];?>" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["contact"];?>" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Contact" class="col-form-label">Contact</label>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["alternatecontact"];?>" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="Email Id" class="col-form-label">Email Id</label>
@@ -233,8 +237,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="Confirm Your Identity" class="col-form-label">Confirm Your Identity</label>
-                        <input type="file" name="identity" id="identity" placeholder="Identity" required />
+                        <label for="Confirm Your Identity" class="col-form-label">Please upload the following documents: </label>
+                          <br><label for="Confirm Your Identity" class="col-form-label">Aadhar Card [Optional] </label>
+                        <input type="file" name="aadharIdentity" id="aadharIdentity" placeholder="Identity" />
+                          <br><label for="Confirm Your Identity" class="col-form-label">PAN Card</label>
+                        <input type="file" name="panIdentity" id="panIdentity" placeholder="Identity" required />
+                          <br><label for="Confirm Your Identity" class="col-form-label">Cancelled Cheque</label>
+                        <input type="file" name="canceledCheckIdentity" id="canceledCheckIdentity" placeholder="Identity" required />
                     </div>
                   </div>
               </div>
@@ -244,7 +253,7 @@
                     I have read and agree to all the terms and conditions mentioned above
                   </label>
               </div>
-              <div class="form-group">
+<!--               <div class="form-group">
                   <label class="col-form-label" style="font-size:16px;font-weight:bold">CODE OF CONDUCTS FOR MEMBERS</label><br>
                   <ul class="codeOfConductList">
                     <li>
@@ -281,7 +290,7 @@
 
                   </ul>
               </div>
-            </div>
+ -->            </div>
           </div>
           <button class='btn btn-primary btn-md' id="btnSave" style="background-color:#2bcdc1;" type="submit">Update Profile</button>
         </form>
@@ -290,29 +299,9 @@
   </section>
   <!-- End contact section  -->
 
-  <!-- Start footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-left">
-            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-right">
-            <a href="index.php"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- End footer -->
-
+  <?php
+    include_once('footer.php');
+  ?>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

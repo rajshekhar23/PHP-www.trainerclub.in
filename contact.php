@@ -145,7 +145,7 @@
                       <textarea placeholder="Comment" rows="3" class="form-control" name="comments" id="comments" required>
                       </textarea>
                     </div>
-                    <button class="comment-btn" type="submit">Submit Comment</button>
+                    <button class="comment-btn" type="submit" style="background-color:#2bcdc1;">Submit Comment</button>
                   </form>
                  </div>
                </div>

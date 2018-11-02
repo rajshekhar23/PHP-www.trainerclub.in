@@ -149,7 +149,7 @@ img{
 }
 
 .header-top{
-	background-color: #333;
+	background-color: #ccc;
 	display: none;
 	float: left;
 	width: 100%;
@@ -184,16 +184,16 @@ img{
   height: 35px;
   line-height: 35px;
   position: absolute;
-  right: 8%;
+  right: 4%;
   text-align: center;
   top: 20px;
   width: 35px;
 }
 
 .header-bottom{
-	background-color: rgba(0, 0, 0, 0.02);
+  background-color: #e4e4e4;
 	border-bottom: 1px solid #e4e4e4;
-	color: #949494;
+	color: #fff;
 	font-size: 12px;
 	height: 40px;
 	display: inline;
@@ -215,7 +215,8 @@ img{
   border-left: 1px solid #e4e4e4;
   display: inline-block;
   float: left;
-  margin-right: 10px;
+  margin-right: 1px;
+  background: orange;
   padding: 10px 12px;
 }
 
@@ -248,9 +249,10 @@ img{
 .login {
   border-left: 1px solid #e4e4e4;
   border-right: 1px solid #e4e4e4;
-  color: #949494;
+  color: #fff;
   display: inline-block;
   font-size: 14px;
+  background: orange;
   line-height: 20px;
   padding: 10px 15px;
   text-decoration: none;
@@ -275,6 +277,7 @@ img{
 #login-form .modal-dialog {
   margin: 130px auto;
   width: 400px;
+  z-index: 200000;
 }
 
 #login-content {
@@ -407,16 +410,15 @@ img{
 }
 
 .main-nav li {
-  padding: 15px 0;
   position: relative;
-  margin: 0 5px;
+  margin: 13px 5px;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: #333;
   display: inline-block !important;
   font-family: "Lato",sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
   text-transform: uppercase;
@@ -2419,6 +2421,9 @@ img{
   .blog-single-social {
     text-align: center;
     margin-top: 20px;
+  }
+  .navbar-right {
+    margin-right: 30px !important;
   }
 
 }

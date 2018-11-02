@@ -90,7 +90,21 @@
                   </div>
                   <div class="form-group">
                       <label for="Technical Skills" class="col-form-label">Technical Skills</label>
-                      <input type="text" name="technicalSkills" id="technicalSkills" class="form-control" placeholder="Enter Technical Skills" required>
+                      <select id="technicalSkills" name="technicalSkills" class="form-control" required>
+                        <option value="">Select Technical Skills</option>
+                        <option value="Automobiles">Automobiles</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="IT">IT</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="Real Estate Company">Real Estate Company</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <input type="text" name="selectTechnicalSkillsText" id="selectTechnicalSkillsText" class="form-control" 
+                        placeholder="Enter Techinical Skill">
                   </div>
                   <div class="form-group">
                       <div class="col-md-2">
@@ -155,7 +169,7 @@
                             <input type="text" name="duration1" id="duration1" class="form-control" placeholder="Duration">
                         </div>
                         <div class="col-md-2">
-                            <input type="text" id="start" name="start" name="monthyear1" id="monthyear1" class="form-control" placeholder="Month / Year">
+                            <input type="text" name="monthyear1" id="monthyear1" class="form-control" placeholder="Month / Year">
                         </div>
                       </div><br>
                       <div class="row">
@@ -175,7 +189,7 @@
                             <input type="text" name="duration2" id="duration2" class="form-control" placeholder="Duration">
                         </div>
                         <div class="col-md-2">
-                            <input type="text" id="start" name="start" name="monthyear2" id="monthyear2" class="form-control" placeholder="Month / Year">
+                            <input type="text" name="monthyear2" id="monthyear2" class="form-control" placeholder="Month / Year">
                         </div>
                       </div><br>
                       <div class="row">
@@ -195,7 +209,7 @@
                             <input type="text" name="duration3" id="duration3" class="form-control" placeholder="Duration">
                         </div>
                         <div class="col-md-2">
-                            <input type="text" id="start" name="start" name="monthyear3" id="monthyear3" class="form-control" placeholder="Month / Year">
+                            <input type="text" name="monthyear3" id="monthyear3" class="form-control" placeholder="Month / Year">
                         </div>
                       </div><br>
                       <div class="row">
@@ -215,7 +229,7 @@
                             <input type="text" name="duration4" id="duration4" class="form-control" placeholder="Duration">
                         </div>
                         <div class="col-md-2">
-                            <input type="text" id="start" name="start" name="monthyear4" id="monthyear4" class="form-control" placeholder="Month / Year">
+                            <input type="text" name="monthyear4" id="monthyear4" class="form-control" placeholder="Month / Year">
                         </div>
                       </div><br>
                       <div class="row">
@@ -235,7 +249,7 @@
                             <input type="text" name="duration5" id="duration5" class="form-control" placeholder="Duration">
                         </div>
                         <div class="col-md-2">
-                            <input type="text" id="start" name="start" name="monthyear5" id="monthyear5" class="form-control" placeholder="Month / Year">
+                            <input type="text" name="monthyear5" id="monthyear5" class="form-control" placeholder="Month / Year">
                         </div>
                       </div><br>
                       <div class="row text-center">
@@ -279,8 +293,8 @@
                 <div class="panel-body">
                   <div class="form-group">
 
- <label for='gallery' class="col-form-label">Add Profile Picture</label>
-                        <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/>
+    <!--                     <label for='gallery' class="col-form-label">Add Profile Picture</label>
+                        <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/> -->
 
                         <label for="First Name" class="col-form-label">First Name</label>
                         <input type="text"  name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
@@ -294,8 +308,12 @@
                         <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="Contact" class="col-form-label">Contact</label>
-                        <input type="text" name="contact" id="contactus" class="form-control" placeholder=" Contact" required>
+                        <label for="Contact" class="col-form-label">Contact Number</label>
+                        <input type="text" onkeypress="return isNumberKey(event)" name="contact" id="contact" class="form-control" placeholder=" Contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Contact" class="col-form-label">Alternate Contact Number</label>
+                        <input type="text" onkeypress="return isNumberKey(event)" name="alternatecontact" id="alternatecontact" class="form-control" placeholder="Alternate Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="Email Id" class="col-form-label">Email Id</label>
@@ -387,29 +405,9 @@
   </section>
   <!-- End contact section  -->
 
-  <!-- Start footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-left">
-            <p>Designed & Developed by <a href="http://cerbosys.com/">Cerbosys</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-right">
-            <a href="index.php"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- End footer -->
-
+  <?php 
+    include_once('footer.php');
+  ?>
   <!-- jQuery library -->
   <script src="assets/js/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

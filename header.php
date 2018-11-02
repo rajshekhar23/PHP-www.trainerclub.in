@@ -46,7 +46,7 @@
                   echo '<a class="login modal-form" id="logout">Logout</a>';
                 } else {              
                   echo '<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Login</a>';
-                  echo '<a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Sign Up</a>';
+                  echo '<a class="login modal-form" data-target="#signup-form" data-toggle="modal" href="#">Sign Up</a>';
                 }
                 ?>
             </div>

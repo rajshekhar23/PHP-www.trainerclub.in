@@ -83,18 +83,18 @@
     <div class="container">
       <div class="row">
         <p class="pull-left"><h2 class="text-center formTitle"> Profile </h2></p>
-        <p class="pull-right" style="margin-top:20px;"><a class="btn btn-info" href="postjob.php">Post Job</a></p/>
+        <p class="pull-right" style="margin-top:20px;"><a class="btn btn-info" style="background-color:#2bcdc1;" href="postjob.php">Post Job</a></p/>
         <form name="trainerForm" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
-                  <div class="col-md-3">
+                  <div class="col-md-3"  style="border-right:1px solid #ddd;">
                     Profile Picture / Indentity <br><br>
                     <div class = "thumbnail">
                     <?php echo '<img src = "./backend/uploads/clientIdentity-'. $row["client_id"].'.jpg" alt = "Client\'s identity">'; ?>
                     </div>
                   </div>
-                  <div class="col-md-8" style="border-left:1px solid #ddd;">
+                  <div class="col-md-8">
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Client Name :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['clientname']?></label>

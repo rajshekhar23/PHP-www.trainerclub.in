@@ -23,7 +23,7 @@ if ($flag == 'loadAllSoftSkills') {
 	}
 } else if( $flag == 'loadAllOrgWorkedWith') {
 	$id = $_POST['id'];
-	$query = "SELECT distinct orgworkedwithname FROM orgworkedwith WHERE orgworkedwithId='" . $id . "'";
+	$query = "SELECT distinct technicalSkillsName FROM technicalSkills WHERE technicalSkillsId='" . $id . "'";
 	//echo $query;
 	$result = $conn->query($query);
 	$res = [];
@@ -45,11 +45,10 @@ if ($flag == 'loadAllSoftSkills') {
 	} else {
 		echo mysqli_error($conn);
 	}
-} else if( $flag == 'addOrgWorkedWith') {
-	$orgWorkedWithId = $_POST["orgWorkedWithId"];
-	$orgWorkedWithName = $_POST["orgWorkedWithName"];
-	echo $skillId ." ". $skillName;
-	$query = "INSERT INTO orgworkedwith (orgworkedwithId,orgworkedwithname) VALUES ('$orgWorkedWithId','$orgWorkedWithName')";
+} else if( $flag == 'addTechnicalSkills') {
+	$technicalSkillsId = $_POST["technicalSkillsId"];
+	$technicalSkillsName = $_POST["technicalSkillsName"];
+	$query = "INSERT INTO technicalSkills (technicalSkillsId,technicalSkillsName) VALUES ('$technicalSkillsId','$technicalSkillsName')";
     if(mysqli_query($conn,$query)) {
 		echo 'success';
 	} else {
@@ -61,34 +60,39 @@ if ($flag == 'loadAllSoftSkills') {
 		$industry = $_POST["industry"];
 		$skills = $_POST["skills"];
 		$experience = $_POST["experience"];
-		$param = ' where ';
+		$param = 'where ';
+		$query = 'SELECT * FROM trainers';
 		if($location !== '') {
-			if (strpos($param, 'where') !== false) {
-				$param = $param .' city like "%'.$location .'%"';
+			if (strpos($query, 'where') !== false) {
+				$query .= " OR city like '%$location%'";
 			} else {
-				$param = $param .' or city like "%'.$location .'%"';
+				$query .= " where city like '%$location%'";
 			}
-			
 		}
 		if($skills !== '') {
-			if (strpos($param, 'where') !== false) {
-				$param = $param .' or selectSoftSkills like "%'.$skills .'%"';
+			if (strpos($query, 'where') !== false) {
+				$query .= " OR selectSoftSkills like '%$skills%'";
 			} else {
-				$param = $param .' selectSoftSkills like "%'.$skills .'%"';
+				$query .= " where selectSoftSkills like '%$skills%'";
 			}
 		}
+
 		if($experience !== '') {
-			if (strpos($param, 'where') !== false) {
-				$param = $param .' or totalExperience like "%'.$experience .'%" or relevantExperience like "%'.$experience .'%"';	
+			if (strpos($query, 'where') !== false) {
+				$query .= " OR totalExperience like '%$experience%' OR relevantExperience like '%$experience%'";
 			} else {
-				$param = $param .' totalExperience like "%'.$experience .'%" or relevantExperience like "%'.$experience .'%"';
+				$query .= " where totalExperience like '%$experience%' OR relevantExperience like '%$experience%'";
 			}
 		}
-			
-		
-		//echo $param;
-		$query = "SELECT * FROM trainers " .$param;
-		//echo $query;
+		if($industry !== '') {
+			if (strpos($query, 'where') !== false) {
+				$query .= " OR technicalSkills like '%$industry%'";
+			} else {
+				$query .= " where technicalSkills like '%$industry%'";
+			}
+		}
+		//$query = "SELECT * FROM trainers where city like $location OR selectSoftSkills like $skills";// OR totalExperience like '%".$experience."%' 
+		//OR relevantExperience like '%".$experience."%'";
 	} else {
 		$query = "SELECT * FROM trainers";
 	}
@@ -117,7 +121,11 @@ if ($flag == 'loadAllSoftSkills') {
 	}
 } else if ($flag == 'getAllPostedjobs') {
 	$query = "SELECT * FROM postjob";
-	$result = $conn->query($query);
+/* 	if(isset($_SESSION['trainerId'])) {
+		$query = "SELECT * FROM postjob where trainerId=".$_SESSION['trainerId']." and appliedStatus !=1";
+	} else {
+	}
+ */	$result = $conn->query($query);
 	$res = [];
 	if (mysqli_num_rows($result) > 0) {
 		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -147,7 +155,7 @@ if ($flag == 'loadAllSoftSkills') {
 	}
 } else if($flag == 'sendMailWithSelectedTrainers') {
 	$data = $_POST['data'];
-    $email = 'rajb2381991@gmail.com';
+    $email = 'info@trainersclub.in';
     $mail = new PHPMailer\PHPMailer\PHPMailer(); // create a new object
     $mail->IsSMTP(); // telling the class to use SMTP
     $mail->SMTPAuth = true; // enable SMTP authentication
@@ -172,6 +180,32 @@ if ($flag == 'loadAllSoftSkills') {
         //Something went bad
         echo "Fail - " . $mail->ErrorInfo;
     }
+} else if($flag == 'applyJob') {
+	$jobId = $_POST['jobId'];
+	if (isset($_SESSION['trainerId'])) {
+		$trainerId = $_SESSION['trainerId'];
+		$query = "update postjob set appliedStatus=1, trainerId=". $trainerId ." where id=" .$jobId;
+		$result = $conn->query($query);
+		if ($result > 0) {
+			echo json_encode($result);
+		}	
+	} else {
+		echo json_encode('Please do login as Trainer');
+	}
+} else if($flag == 'getJobDesc') {
+	$jobId = $_POST["jobId"];
+	$query = "SELECT jobDescription FROM postjob where id=".$jobId;
+	//echo $query;
+	$result = $conn->query($query);
+	$res = [];
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+			$res[] = $row;
+		}
+		echo json_encode($res);
+	} else {
+		echo json_encode($res);
+	}
 }
 
 ?>

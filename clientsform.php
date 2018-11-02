@@ -109,7 +109,7 @@
           <!-- TEXT BASED LOGO -->
           <!-- <a class="navbar-brand" href="index.php">TRAINER'S CLUB</a> -->
           <!-- IMG BASED LOGO  -->
-          <a class="navbar-brand" href="index.php"><img src="assets/images/logonew.png" alt="logo" style="width: 130px;height: 90px;"></a>
+          <a class="navbar-brand" href="index.php"><img src="assets/images/logonew.png" alt="logo" style="width: 130px;height: 70px;"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
@@ -248,26 +248,9 @@
   <!-- End contact section  -->
 
   <!-- Start footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-left">
-            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-right">
-            <a href="index.php"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php
+    include_once('footer.php');
+  ?>
   <!-- End footer -->
 
   <!-- jQuery library -->

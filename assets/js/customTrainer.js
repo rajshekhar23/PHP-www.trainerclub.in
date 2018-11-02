@@ -35,7 +35,6 @@ $(document).ready(function () {
           setTimeout(function() {
             window.location.href="trainerProfile.php?trainerId="+data;
           }, 3000);          
-          
         }
       }
     });
@@ -176,8 +175,8 @@ $(document).ready(function () {
 
   $("#selectSoftSkillsText").css('display', 'none');
   $("#selectSoftSkillsText").css('margin-top', '10px');
-  $("#selectOrgWorkedWithText").css('display', 'none');
-  $("#selectOrgWorkedWithText").css('margin-top', '10px');
+  $("#selectTechnicalSkillsText").css('display', 'none');
+  $("#selectTechnicalSkillsText").css('margin-top', '10px');
   
   $("#logout,#signout").click(function (event) {
     $.post("backend/logoutOperation.php", {}, function (data) {
@@ -186,7 +185,7 @@ $(document).ready(function () {
   });
 
   loadAllSoftSkills();
-  loadAllOrgWorkedWithList();
+  loadAllTechnicalSkilss();
   
   $("#selectSoftSkills").change(function () {
     if ($(this).val() == 'Other') {
@@ -200,25 +199,25 @@ $(document).ready(function () {
     addSkill('softskills',$(this).val());
   });
 
-  $("#selectOrgWorkedWith").change(function () {
+  $("#technicalSkills").change(function () {
     if ($(this).val() == 'Other') {
-      $("#selectOrgWorkedWithText").show(1000);
+      $("#selectTechnicalSkillsText").show(1000);
     } else {
-      $("#selectOrgWorkedWithText").hide(1000);
+      $("#selectTechnicalSkillsText").hide(1000);
     }
   });
 
-  $("#selectOrgWorkedWithText").blur(function () {
-    addOrgWorkedWith('orgWorkedWith',$(this).val());
+  $("#selectTechnicalSkillsText").blur(function () {
+    addTechnicalSkills('technicalSkills',$(this).val());
   });
 
 });
 
-function addOrgWorkedWith(orgWorkedWithId, orgWorkedWithName) {
+function addTechnicalSkills(technicalSkillsId, technicalSkillsName) {
   $.post("backend/allProducts.php", {
-    flag: "addOrgWorkedWith",
-    orgWorkedWithId: orgWorkedWithId,
-    orgWorkedWithName: orgWorkedWithName
+    flag: "addTechnicalSkills",
+    technicalSkillsId: technicalSkillsId,
+    technicalSkillsName: technicalSkillsName
   }, function (data) {
     console.log(data);
   });
@@ -248,23 +247,21 @@ function loadAllSoftSkills() {
       var element = '<option value=' + option.skillname + '>' + option.skillname + '</option>';
       $("#selectSoftSkills").append(element);
     });
-    var element = '<option value="Other">Other</option>';
-    $("#selectSoftSkills").append(element);
   })
 }
 
-function loadAllOrgWorkedWithList() {
+function loadAllTechnicalSkilss() {
   $.post("backend/allProducts.php", {
     flag: "loadAllOrgWorkedWith",
-    id: "orgWorkedWith"
+    id: "technicalSkills"
   }, function (data) {
     console.log('OrgWorkedWith list', data);
     data.forEach(option => {
       var element = '<option value=' + option.orgworkedwithname + '>' + option.orgworkedwithname + '</option>';
-      $("#selectOrgWorkedWith").append(element);
+      $("#technicalSkills").append(element);
     });
     var element = '<option value="Other">Other</option>';
-    $("#selectOrgWorkedWith").append(element);
+    $("#technicalSkills").append(element);
   })
 }
 

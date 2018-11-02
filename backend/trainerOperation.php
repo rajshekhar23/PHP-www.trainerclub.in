@@ -20,7 +20,11 @@
     } else {
         $selectSoftSkills = $_POST["selectSoftSkillsText"];
     }
-    $technicalSkills = $_POST['technicalSkills'];
+    if(isset($_POST["selectSoftSkills"])) {
+        $technicalSkills = $_POST['technicalSkills'];
+    } else {
+        $technicalSkills = $_POST['selectTechnicalSkillsText'];
+    }    
     $academic = $_POST["academic"];
     $professional = $_POST["professional"];
     $diplomaCertification = $_POST["diplomaCertification"];
@@ -35,22 +39,26 @@
     $middleName = $_POST["middleName"];
     $lastName = $_POST["lastName"];
     $contact = $_POST["contact"];
+    $alternatecontact = $_POST["alternatecontact"];
     $emailId = $_POST["emailId"];
     $fullPostalAddress = $_POST["fullPostalAddress"];
     $street = $_POST["street"];
     $city = $_POST["city"];
     $pincode = $_POST["pincode"];
     $state = $_POST["state"];
-    //$user_id = $_SESSION["trainerId"];
-    $user_id = 7;
-    $query = "insert into trainers (trainer_id, trainerParentCategory, subCategory, selectSoftSkills, technicalSkills, willingToTravel, academic, professional, diplomaCertification, awardsRewards, profJourney, totalExperience, relevantExperience, selectOrgWorkedWith, tcmember, enrollmentId, firstName, middleName, lastName, contact, emailId, fullPostalAddress, street, city, pincode, state ) values 
+    $user_id = $_SESSION["trainerId"];
+    //$user_id = 7;
+    $folder = 'uploads/trainer/'.$user_id.'/';
+    deleteDirectory($folder);
+    $target_dir = $folder."/identity/";
+    deleteDirectory($target_dir);
+    $query = "insert into trainers (trainer_id, trainerParentCategory, subCategory, selectSoftSkills, technicalSkills, willingToTravel, academic, professional, diplomaCertification, awardsRewards, profJourney, totalExperience, relevantExperience, selectOrgWorkedWith, tcmember, enrollmentId, firstName, middleName, lastName, contact, alternatecontact, emailId, fullPostalAddress, street, city, pincode, state ) values 
     ('" .$user_id. "','" .$trainerParentCategory. "','" .$subCategory. "','" .$selectSoftSkills. "','". $technicalSkills ."','" . $willingToTravel . "','" .$academic. "','" .$professional. "','" .$diplomaCertification. "',
-    '" .$awardsRewards. "','" .$profJourney. "','" .$totalExperience. "','" .$relevantExperience. "','" .$selectOrgWorkedWith. "','" .$tcmember. "','" .$enrollmentId. "','" .$firstName. "','" .$middleName. "','" .$lastName. "','" .$contact. "',
+    '" .$awardsRewards. "','" .$profJourney. "','" .$totalExperience. "','" .$relevantExperience. "','" .$selectOrgWorkedWith. "','" .$tcmember. "','" .$enrollmentId. "','" .$firstName. "','" .$middleName. "','" .$lastName. "','" .$contact. "','" .$alternatecontact. "',
     '" .$emailId. "','" .$fullPostalAddress. "','" .$street. "','" .$city. "','" .$pincode. "','" .$state. "')";
     if(mysqli_query($conn,$query)) {
         $last_id = $conn->insert_id;
         //Upload Identity
-        $target_dir = "uploads/trainer";
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
@@ -71,8 +79,7 @@
         //upload cancelled check identity
         $path_parts = pathinfo($_FILES["canceledCheckIdentity"]["name"]);
         $ext = $path_parts['extension'];
-        $target_file = $target_dir ."CancelledCheckIdentity-".$user_id.".".$ext;
-        
+        $target_file = $target_dir ."CancelledCheckIdentity-".$user_id.".".$ext;        
         $check = getimagesize($_FILES["canceledCheckIdentity"]["tmp_name"]);
         move_uploaded_file($_FILES["canceledCheckIdentity"]["tmp_name"], $target_file);           
 
@@ -81,6 +88,28 @@
         echo $user_id;
     } else {
         echo mysqli_error($conn);
+    }
+
+    function deleteDirectory($dir) {
+        if (!file_exists($dir)) {
+            return true;
+        }
+    
+        if (!is_dir($dir)) {
+            return unlink($dir);
+        }
+    
+        foreach (scandir($dir) as $item) {
+            if ($item == '.' || $item == '..') {
+                continue;
+            }
+    
+            if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+                return false;
+            }
+    
+        }
+        return rmdir($dir);
     }
 
     function uploadAllImages($last_id) {

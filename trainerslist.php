@@ -89,7 +89,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="Country" class="col-form-label minHeight"></label>
-                        <button class='btn btn-primary btn-md' id="btnSearch" style="background-color:#2bcdc1;" type="submit">Search</button>
+                        <button class='btn btn-primary btn-md' id="btnSearch" style="background-color:#2bcdc1;" type="submit">Filter</button>
                         <button class='btn btn-primary btn-md' id="btnReset" style="background-color:#2bcdc1;" type="reset">Reset</button>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="row text-center">
-            <button class="btn btn-info" id="btnBook" style="width:10%;margin:20px auto;font-weight:bold;">BOOK</button>
+            <button class="btn btn-info" id="btnBook" style="background-color:#2bcdc1;width:10%;margin:20px auto;font-weight:bold;">BOOK</button>
         </div>
         <div class="row" id="allSelectedTrainers">
         </div>
@@ -137,6 +137,7 @@
   <script src="./assets/js/customTrainerList.js"></script>
   <script src="./assets/js/customTrainer.js"></script>
   <script>
+    
       $(document).ready(function() {
             $("#btnBook").attr('disabled',true);
             $("#btnBook").click(function() {
@@ -152,6 +153,10 @@
                     },function(data) {
                         if(data == 'SESSION INACTIVE') {
                             toast('Please Do Login As Client');
+                            setTimeout(() => {
+                                $("#login-form").css('display','block');
+                                $("#login-form").addClass('fade in');
+                            }, 2000);
                         } else {
                             if(data.length > 0) {
                             toast('Selected Trainers booked !!!');
@@ -222,7 +227,7 @@
         $("#selectedCount").html('Selected Trainers count : ' + countCheckedCheckboxes);
         if(countCheckedCheckboxes > 0) {
             $("#btnBook").attr('disabled',false);
-            if(countCheckedCheckboxes > 2) {
+            if(countCheckedCheckboxes > 4) {
                 $('input:checkbox:not(":checked")').attr('disabled',true);
             } else {
                 $('input:checkbox:not(":checked")').attr('disabled',false);
@@ -239,7 +244,6 @@
             data.forEach(function(object,index) {
                 var url = "./backend/uploads/trainerIdentity-"+object.trainer_id+".jpg";
                 var item = '<div class = "col-sm-6 col-md-3 item">' +
-                    '<div class="bg-info" style="border-radius:2px;"><label class="col-form-label" style="padding:1px 2px;"><input style="padding:1px 2px;margin-right:3px;" type="checkbox" onchange="checkCount(event)" value="'+ object.trainer_id +'" name="chkSelected" />'+ (index +1) +'</label></div>' +
                     '<div class = "thumbnail">' +
                         '<img src ="'+url+'"  alt = "Trainer\'s identity">' +
                     '</div>' +
@@ -251,6 +255,8 @@
                         '<p>Certification: '+ object.diplomaCertification +'</p>' +
                         '<p>Academic: '+ object.academic +'</p>' +        
                     '</div>'+
+                    '<div class="bg-info1" style="border-radius:2px;"><label class="col-form-label" style="padding:1px 2px;"><input style="zoom:2.2;padding:1px 2px;margin-right:3px;" type="checkbox" onchange="checkCount(event)" value="'+ object.trainer_id +'" name="chkSelected" />'+
+                    '<span style="display:block;margin-top:12px;float:right;width: 57%;">SELECT</span></label></div>' +
                 '</div>';                
                 $("#trainerListWrapper").append(item);
             });
