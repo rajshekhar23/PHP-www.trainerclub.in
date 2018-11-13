@@ -44,47 +44,30 @@
 <!-- End header -->
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
   <!-- Start contact section  -->
-  <section id="contact">
+  <section id="contact" style="margin-bottom:35px;">
     <div class="container">
       <div class="row clientWrapper">
         <h2 class="text-center formTitle"> Our Client's </h2>
         <div class="row" id="trainerListWrapper">
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/Ynm ad.JPG"  alt = "Client\'s identity">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/360 deg Logo.JPG"  alt = "Client\'s identity">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/cerbosys_png.png"  alt = "Client\'s identity">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/gna_V-card BK.jpg"  alt = "Client\'s identity">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/PMAPS Client Logo.png"  alt = "Client\'s identity">
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 item">
-          <div class = "thumbnail">
-              <img src="./assets/images/home/Quikstart logo.jpg"  alt = "Client\'s identity">
-          </div>
-        </div>
+          <?php
+            foreach (glob("./backend/uploads/client/*") as $filename) {
+              echo '<div class="col-sm-6 col-md-2 item">
+                    <div class="thumbnail">
+                      <img src="' .$filename. '">
+                    </div>
+              </div>';
+              //echo $filename."<br />";
+            }
+          ?>
       </div>
     </div>
   </section>
+  <div style="bottom: 0px;width:100%;
+    position: absolute;">
   <?php
     include_once('footer.php');
   ?>
+  </div>
   <!-- End contact section  -->
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -121,20 +104,16 @@
             flag:"readAllClientsList"
         },function(data) {
             console.log(data);                  
-            //var item;
+            var item;
             data.forEach(function(object,index) {
-                var url = "./backend/uploads/clientIdentity-"+ object.client_id +".jpg";
-                var item = '<div class = "col-sm-6 col-md-4 item">' +
-                    '<div class = "thumbnail">'+
-                        '<img src="'+ url +'"  alt = "Client\'s identity">'+
-                    '</div>'+
-                    '<div class = "caption">'+
-                        '<p class="fullname">Full Name: <span>'+ 
-                            object.clientname +'</span></p>'+
-                        '<p>EmailId: '+ object.clientemail +'</p>'+
-                        '<p>Location: '+ object.clientaddress +'</p>'+
-                    '</div>'+
-                '</div>';
+              console.log(object);
+             if(object != '.' || object != '..') {
+                item +='<div class="col-sm-6 col-md-4 item">'+
+                        '<div class = "thumbnail">'+
+                            '<img src="./backend/uploads/client/'+ object +'"  alt = "Client\'s identity">'+
+                        '</div>'+
+                      '</div>';
+                }  
                 $("#trainerListWrapper").append(item);
             });
         });          

@@ -108,6 +108,23 @@
                         placeholder="Enter Soft Skill">
                   </div>
                   <div class="form-group">
+                      <label for="Technical Skills" class="col-form-label">Technical Skills</label>
+                      <select id="technicalSkills" name="technicalSkills" class="form-control" required>
+                        <option value="">Select Technical Skills</option>
+                        <option value="Automobiles">Automobiles</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="IT">IT</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="Real Estate Company">Real Estate Company</option>
+                        <option value="Retail">Retail</option>                        
+                      </select>
+                      <input type="text" name="selectTechnicalSkillsText" id="selectTechnicalSkillsText" class="form-control" 
+                        placeholder="Enter Techinical Skill">
+                  </div>
+                  <div class="form-group">
                       <div class="col-md-2">
                         <label for="Soft Skills" class="col-form-label" style="line-height: 35px;margin-left: -12px;">Willing to travel ?</label>
                       </div>
@@ -125,19 +142,19 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label for="Academic" class="col-form-label">Academic</label>
-                      <input type="text" value="<?php echo $row['academic'];?>"  name="academic" id="academic" class="form-control" placeholder="Academic" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" value="<?php echo $row['academic'];?>"  name="academic" id="academic" class="form-control" placeholder="Academic" required>
                   </div>
                   <div class="form-group">
                       <label for="Professional" class="col-form-label">Professional</label>
-                      <input type="text" value="<?php echo $row['professional'];?>" name="professional" id="professional" class="form-control" placeholder="Professional" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" value="<?php echo $row['professional'];?>" name="professional" id="professional" class="form-control" placeholder="Professional" required>
                   </div>
                   <div class="form-group">
                       <label for="Diploma/Certification" class="col-form-label">Diploma / Certification</label>
-                      <input type="text" value="<?php echo $row['diplomaCertification'];?>"  name="diplomaCertification" id="diplomaCertification" class="form-control" placeholder="Diploma / Certification" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" value="<?php echo $row['diplomaCertification'];?>"  name="diplomaCertification" id="diplomaCertification" class="form-control" placeholder="Diploma / Certification" required>
                   </div>
                   <div class="form-group">
                       <label for="Awards / Rewards" class="col-form-label">Awards / Rewards</label>
-                      <input type="text" value="<?php echo $row['awardsRewards'];?>" name="awardsRewards" id="awardsRewards" class="form-control" placeholder="Awards / Rewards" required>
+                      <input type="text"  value="<?php echo $row['awardsRewards'];?>" name="awardsRewards" id="awardsRewards" class="form-control" placeholder="Awards / Rewards" required>
                   </div>
                   <div class="form-group">
                       <label for="Awards / Rewards" class="col-form-label">Brief About Your Professional Journey</label>
@@ -152,15 +169,110 @@
                       <input type="text" value="<?php if(isset($row['totalExperience'])) echo $row['totalExperience'];?>" name="relevantExperience" id="relevantExperience" class="form-control" onkeypress="return isNumberKey(event)" maxlength="5" placeholder="Relevant Training Experience in yrs" required>
                   </div>
                   <div class="form-group">
-                      <label for="Organization worked with" class="col-form-label">Organization Worked With</label>
-                      <select id="selectOrgWorkedWith" name="selectOrgWorkedWith" class="form-control" value="<?php echo $row["selectOrgWorkedWith"];?>" required>
-                        <option value="">-- select --</option>
-                        <option value="<?php echo $row["selectOrgWorkedWith"];?>" selected><?php echo $row["selectOrgWorkedWith"];?></option>
-                        <option value="Freelancer / Enterpreneur">Freelancer / Enterpreneur</option>
-                        <option value="FTE (Full Time Employee)">FTE (Full Time Employee)</option>
-                      </select>
-                      <input type="text" name="selectOrgWorkedWithOther" id="selectOrgWorkedWithText" class="form-control" 
-                        placeholder="Enter Organization Name">
+                      <label for="Organization worked with" class="col-form-label">Organization Worked With [Latest 5] </label>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">1</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName1" id="orgName1" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName1" id="trainingName1" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered1" id="topicsCovered1" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration1" id="duration1" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="monthyear1" id="monthyear1" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">2</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName2" id="orgName2" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName2" id="trainingName2" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered2" id="topicsCovered2" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration2" id="duration2" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="monthyear2" id="monthyear2" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">3</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName3" id="orgName3" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName3" id="trainingName3" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered3" id="topicsCovered3" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration3" id="duration3" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="monthyear3" id="monthyear3" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">4</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName4" id="orgName4" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName4" id="trainingName4" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered4" id="topicsCovered4" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration4" id="duration4" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="monthyear4" id="monthyear4" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col-md-1" style="padding:0;">
+                            <p for="Sequence" class="text-center" style="margin-top:5px;">5</p>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="orgName5" id="orgName5" class="form-control" placeholder="Organization Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="trainingName5" id="trainingName5" class="form-control" placeholder="Training Name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="topicsCovered5" id="topicsCovered5" class="form-control" placeholder="Topics Covered">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="duration5" id="duration5" class="form-control" placeholder="Duration">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" name="monthyear5" id="monthyear5" class="form-control" placeholder="Month / Year">
+                        </div>
+                      </div><br>
+                      <div class="row text-center">
+                        <button class="btn btn-info btn-sm" id="addAllOrgWorkedWithList">ADD ALL</button>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -177,12 +289,13 @@
                 <div class="panel-heading">Reffered By</div>
                 <div class="panel-body">
                     <div class="form-group">
+
                         <label for="First Name" class="col-form-label">Name of TC Member</label>
-                        <input type="text" value="<?php echo $row["tcmember"];?>"  name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member" required>
+                        <input type="text" value="<?php echo $row["tcmember"];?>"  onkeypress="return isNumericKey(event)" name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member" required>
                     </div>
                     <div class="form-group">
                         <label for="Enrollment Id" class="col-form-label">Enrollment ID</label>
-                        <input type="text" value="<?php echo $row["enrollmentId"];?>" name="enrollmentId" id="enrollmentId" class="form-control" placeholder="Enrollment Id" required>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["enrollmentId"];?>" name="enrollmentId" id="enrollmentId" class="form-control" placeholder="Enrollment Id" required>
                     </div>
                 </div>
               </div>
@@ -190,24 +303,26 @@
                 <div class="panel-heading">Personal Information</div>
                 <div class="panel-body">
                   <div class="form-group">
+                        <label for='profile' class="col-form-label">Add Profile Picture</label>
+                        <input id='profile' name="profile" type="file" required/>
                         <label for="First Name" class="col-form-label">First Name</label>
-                        <input type="text" value="<?php echo $row["firstName"];?>"  name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                        <input type="text" value="<?php echo $row["firstName"];?>"  onkeypress="return isNumericKey(event)" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Middle Name" class="col-form-label">Middle Name</label>
-                        <input type="text" value="<?php echo $row["middleName"];?>" name="middleName" id="middleName" class="form-control" placeholder="Middle Name" required>
+                        <input type="text" value="<?php echo $row["middleName"];?>" onkeypress="return isNumericKey(event)" name="middleName" id="middleName" class="form-control" placeholder="Middle Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Last Name" class="col-form-label">Last Name</label>
-                        <input type="text" value="<?php echo $row["lastName"];?>" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+                        <input type="text" value="<?php echo $row["lastName"];?>" onkeypress="return isNumericKey(event)" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Contact" class="col-form-label">Contact</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["contact"];?>" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["contact"];?>" name="contact" id="contact" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
                     </div>
                     <div class="form-group">
-                        <label for="Contact" class="col-form-label">Contact</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["alternatecontact"];?>" name="contact" id="contactus" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                        <label for="Contact" class="col-form-label">Alternate Contact</label>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["alternatecontact"];?>" name="alternatecontact" id="alternatecontact" class="form-control" placeholder=" Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="Email Id" class="col-form-label">Email Id</label>
@@ -219,15 +334,15 @@
                     </div>
                     <div class="form-group">
                         <label for="Street" class="col-form-label">Street</label>
-                        <input type="text" value="<?php echo $row["street"];?>" name="street" id="street" class="form-control" placeholder="Street" required>
+                        <input type="text" value="<?php echo $row["street"];?>" onkeypress="return isNumericKey(event)" name="street" id="street" class="form-control" placeholder="Street" required>
                     </div>
                     <div class="form-group">
                         <label for="City" class="col-form-label">City</label>
-                        <input type="text" value="<?php echo $row["city"];?>" name="city" id="city" class="form-control" placeholder="City" required>
+                        <input type="text" value="<?php echo $row["city"];?>" onkeypress="return isNumericKey(event)" name="city" id="city" class="form-control" placeholder="City" required>
                     </div>
                     <div class="form-group">
                         <label for="Pincode" class="col-form-label">Pincode</label>
-                        <input type="text" value="<?php echo $row["pincode"];?>" name="pincode" id="pincode" class="form-control" maxlength="6" onkeypress="return isNumberKey(event)" placeholder="Pincode" required>
+                        <input type="text" onkeypress="return isNumberKey(event)" value="<?php echo $row["pincode"];?>" name="pincode" id="pincode" class="form-control" maxlength="6" onkeypress="return isNumberKey(event)" placeholder="Pincode" required>
                     </div>
                     <div class="form-group">
                         <label for="State" class="col-form-label">State</label>

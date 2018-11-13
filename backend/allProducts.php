@@ -108,7 +108,7 @@ if ($flag == 'loadAllSoftSkills') {
 		echo json_encode($res);
 	}
 } else if ($flag == 'readAllClientsList') {
-	$query = "SELECT * FROM clients";
+/* 	$query = "SELECT * FROM clients";
 	$result = $conn->query($query);
 	$res = [];
 	if (mysqli_num_rows($result) > 0) {
@@ -118,9 +118,28 @@ if ($flag == 'loadAllSoftSkills') {
 		echo json_encode($res);
 	} else {
 		echo json_encode($res);
+	} */
+	$target_dir = "../backend/uploads/client";
+	$res = array();
+	if (is_dir($target_dir)){
+		if ($dh = opendir($target_dir)){
+			while (($file = readdir($dh)) !== false){
+				if($file !== '.' || $file !== '..') {
+					array_push($res,$file);
+				}
+				
+			}
+			echo json_encode($res);
+			closedir($dh);
+		}
 	}
 } else if ($flag == 'getAllPostedjobs') {
-	$query = "SELECT * FROM postjob";
+	if(isset($_POST["id"])) {
+		$query = "SELECT * FROM postjob order by id DESC";
+	} else {
+		$query = "SELECT * FROM postjob order by id DESC LIMIT 5";
+	}
+	
 /* 	if(isset($_SESSION['trainerId'])) {
 		$query = "SELECT * FROM postjob where trainerId=".$_SESSION['trainerId']." and appliedStatus !=1";
 	} else {

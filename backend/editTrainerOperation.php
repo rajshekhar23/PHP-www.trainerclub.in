@@ -1,9 +1,10 @@
 <?PHP
     session_start();
     require('dbConnect.php');
+    //print_r($_POST);
     $user_id = $_SESSION["trainerId"];
     $trainerParentCategory = $_POST["trainerParentCategory"];
-    $subCategory = $_POST["subCategory"];    
+    $subCategory = $_POST["subCategory"];        
     if(isset($_POST["willingTravelInternational"]))
         $willingTravelInternational = $_POST["willingTravelInternational"];
     else 
@@ -21,7 +22,11 @@
     } else {
         $selectSoftSkillsOther = $_POST["selectSoftSkillsOther"];
     }
-    
+    if(isset($_POST["technicalSkills"])) {
+        $technicalSkills = $_POST['technicalSkills'];
+    } else {
+        $technicalSkills = $_POST['selectTechnicalSkillsText'];
+    }        
     $academic = $_POST["academic"];
     $professional = $_POST["professional"];
     $diplomaCertification = $_POST["diplomaCertification"];
@@ -29,18 +34,14 @@
     $profJourney = $_POST["profJourney"];
     $totalExperience = $_POST["totalExperience"];
     $relevantExperience = $_POST["relevantExperience"];
-    if(isset($_POST["selectOrgWorkedWith"])) {
-        $selectOrgWorkedWith = $_POST["selectOrgWorkedWith"];
-    } else {
-        $selectOrgWorkedWithOther = $_POST["selectOrgWorkedWithOther"];
-    }
-    
+    $selectOrgWorkedWith = $_POST['orgWorkedWithList'];
     $tcmember = $_POST["tcmember"];
     $enrollmentId = $_POST["enrollmentId"];
     $firstName = $_POST["firstName"];
     $middleName = $_POST["middleName"];
     $lastName = $_POST["lastName"];
     $contact = $_POST["contact"];
+    $alternatecontact = $_POST["alternatecontact"];
     $emailId = $_POST["emailId"];
     $fullPostalAddress = $_POST["fullPostalAddress"];
     $street = $_POST["street"];
@@ -54,10 +55,10 @@
     deleteDirectory($target_dir);
     //sleep(2);
     $query = "update trainers set trainerParentCategory='". $trainerParentCategory ."', subCategory='". $subCategory ."', selectSoftSkills='". $selectSoftSkills ."',
-    willingToTravel='". $willingToTravel ."', academic='".$academic."', professional='".$professional."', diplomaCertification='".$diplomaCertification."', awardsRewards='".$awardsRewards."',
+    technicalSkills='". $technicalSkills ."',willingToTravel='". $willingToTravel ."', academic='".$academic."', professional='".$professional."', diplomaCertification='".$diplomaCertification."', awardsRewards='".$awardsRewards."',
     profJourney='".$profJourney."', totalExperience='".$totalExperience."', relevantExperience='".$relevantExperience."', selectOrgWorkedWith='".$selectOrgWorkedWith."',
     tcmember='".$tcmember."', enrollmentId='".$enrollmentId."', firstName='".$firstName."', middleName='".$middleName."', lastName='".$lastName."', contact='".$contact."',
-    emailId='".$emailId."', fullPostalAddress='".$fullPostalAddress."', street='".$street."', city='".$city."', pincode='".$pincode."', state='".$state."' where trainer_id='". $user_id."'";
+    alternatecontact='".$alternatecontact."',emailId='".$emailId."', fullPostalAddress='".$fullPostalAddress."', street='".$street."', city='".$city."', pincode='".$pincode."', state='".$state."' where trainer_id='". $user_id."'";
     $query;
     if(mysqli_query($conn,$query)) {
         $last_id = $conn->insert_id;
@@ -65,6 +66,14 @@
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
+
+        // upload Profile Picture
+        $path_parts = pathinfo($_FILES["profile"]["name"]);
+        $ext = $path_parts['extension'];
+        $target_file = $target_dir ."ProfilePicture-".$user_id.".".$ext;
+        $check = getimagesize($_FILES["profile"]["tmp_name"]);
+        move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file);   
+        
         // upload aadhar Identity
         $path_parts = pathinfo($_FILES["aadharIdentity"]["name"]);
         $ext = $path_parts['extension'];

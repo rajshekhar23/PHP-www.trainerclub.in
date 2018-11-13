@@ -20,7 +20,7 @@
     } else {
         $selectSoftSkills = $_POST["selectSoftSkillsText"];
     }
-    if(isset($_POST["selectSoftSkills"])) {
+    if(isset($_POST["technicalSkills"])) {
         $technicalSkills = $_POST['technicalSkills'];
     } else {
         $technicalSkills = $_POST['selectTechnicalSkillsText'];
@@ -62,6 +62,13 @@
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }
+        // upload Profile Picture
+        $path_parts = pathinfo($_FILES["profile"]["name"]);
+        $ext = $path_parts['extension'];
+        $target_file = $target_dir ."ProfilePicture-".$user_id.".".$ext;
+        $check = getimagesize($_FILES["profile"]["tmp_name"]);
+        move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file);   
+        
         // upload aadhar Identity
         $path_parts = pathinfo($_FILES["aadharIdentity"]["name"]);
         $ext = $path_parts['extension'];

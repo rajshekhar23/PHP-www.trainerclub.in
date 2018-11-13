@@ -42,25 +42,28 @@ h2 {
 }
 
 .thumbnail {
-    margin: 20px 10px;
     top: 0;
     left: 0;
+    padding:6px;
     border: none;
+    margin-bottom: 0px !important;
 }
 
 .thumbnail img {
-    height: 200px;
+    height: 140px;
     -webkit-transition: 0.6s ease;
     transition: 0.6s ease;
 }
 
-.item:hover .thumbnail img {
+/* .item:hover .thumbnail img {
     -webkit-transform: scale(1.2);
     transform: scale(1.1);
-}
+} */
 
 .item {
     border:1px solid #ddd;
+    padding: 0px !important;
+    margin: 0px !important;
 }
 .caption p {
     margin-bottom: 5px;
@@ -82,7 +85,7 @@ h2 {
 }
 
 .caption {
-    padding: 10px 0;
+    padding: 12px;
     text-align: justify;
     text-transform: capitalize;
 }

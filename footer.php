@@ -30,7 +30,7 @@
     border-radius: 2px;
     position: fixed;
     z-index: 100000;
-    left: 70%;
+    left: 35%;
     /* right: 10px; */
     top: 10px;
     font-size: 17px;
@@ -39,7 +39,7 @@
 #toast #img{
 	width: 100px;
 	height: 50px;
-    
+    text-transform: uppercase;
     float: left;
     
     padding-top: 16px;
@@ -48,13 +48,15 @@
     box-sizing: border-box;
 
     
-    background-color: #e4e4e4;
-    color: #000;
+    background-color: #2bcdc1;
+    color: #FFF;
 }
-#toast #desc{
-    width: 300px;
+#toast #desc {
+    text-transform: uppercase;
+    width: 350px;
     display: inline-block;
-    background-color: orange;
+    margin-left: 1px;
+    background-color: #2bcdc1;
     color: #000;
     padding: 16px;
     height:50px;

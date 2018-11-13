@@ -5,7 +5,7 @@ require('backend/dbConnect.php');
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"    >
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Trainer's Club : Home</title>
   <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png"/>
@@ -80,8 +80,8 @@ require('backend/dbConnect.php');
               <img src="./assets/images/slides/Slide3.jpg" alt="" class="">
               <div class="carousel-caption">
               <h4 class="">We Believe In Facililating</h4>
-                <p class="">"Corporate Trainer is the main source of information"</p>
-                <p class="">"Learning Facililator is the hub via which information is shared"</p>
+                <p class="">"Corporate Trainer is the main source of information"
+                "Learning Facililator is the hub via which information is shared"</p>
               </div>
           </div>
           <div class="item" style="">
@@ -119,18 +119,22 @@ require('backend/dbConnect.php');
   </div>
  </div>
 </section>  
-  <!-- End slider -->
-
-  <!-- Start Feature -->
+<!-- Start Feature -->
   <section id="feature">
     <div class="container">
+      <marquee behavior="" direction="" class="liveText">
+        <p>
+          <a href="#trainingevents" id="back2">Click Here For Training Events</a>
+          <a href="#joblist" id="back1">Click Here For Available Jobs</a> 
+        </p>
+      </marquee>
       <div class="row">
         <div class="col-md-12">
           <div class="title-area">
             <h2 class="title">Feature Video</h2>
             <span class="line"></span>
 <br></br>
-<div class="vid"><iframe width="420" height="315" src="https://www.youtube.com/embed/'+ $(this).attr('id') +'?autoplay=1" frameborder="0" allowfullscreen></iframe></div>
+<div class="vid"><iframe id="tcvideo" width="420" height="315" src="./assets/images/home/TC Website Video.mp4?mute=0" frameborder="0" allowfullscreen muted></iframe></div>
 <!--');
    return false;
 
@@ -199,9 +203,9 @@ require('backend/dbConnect.php');
     </div>
   </section>
   <!-- End Feature -->
-  <section id="JobsListing" style="margin-bottom:60px;">
+  <section id="jobslisting" style="margin-bottom:60px;">
     <div class="container">
-      <div class="title-area">
+      <div class="title-area" id="joblist">
         <h2 class="title">Job Listing</h2>
       </div>
       <div class="row">
@@ -214,153 +218,116 @@ require('backend/dbConnect.php');
   <section id="upcomingevents" style="margin-bottom:60px;">
     <div class="row">
       <div class="col-md-12">
-          <div class="title-area">
-            <h2 class="title">Training Events</h2>
+        <div class="title-area" id="trainingevents">
+          <h2 class="title">Training Events</h2>
             <span class="line"></span>
-            <p></p>
           </div>
-        </div>
+      </div>
     </div>
     <div class="row">
       <div class="container">
         <div class="col-md-4 col-sm-6">
           <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
+            <div class="eventTop1">
                 <div class="brows-job-location">
                   <h4>NLP - Neuro Logistics Programming</h4>
                 </div>
-              </li>
-            </ul>
-            <div class="category-desc">
-              <div class="category-detail category-desc-text">
-                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 19th July.jpg')">VIEW</button>
-              </div>
             </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;color:#2bcdc1;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">19th July,2018</i></span>
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>  
-        <div class="col-md-4 col-sm-6">
-          <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
-                <div class="brows-job-location">
-                  <h4>Automobile Industry</h4>
-                </div>
-              </li>
-            </ul>
-            <div class="category-desc">
-              <div class="category-detail category-desc-text">
-                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Automobile 8th July.jpg')">VIEW</button>
-              </div>
-            </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;color:#2bcdc1;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">8th July,2018</i></span>
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>  
-        <div class="col-md-4 col-sm-6">
-          <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
-                <div class="brows-job-location">
-                  <h4>GraphoAnalysis</h4>
-                </div>
-              </li>
-            </ul>
-            <div class="category-desc">
-              <div class="category-detail category-desc-text">
-                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Graphoanalysis 29th July.png')">VIEW</button>
-              </div>
-            </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">29th July,2018</i></span>
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>  
-        <div class="col-md-4 col-sm-6">
-          <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
-                <div class="brows-job-location">
-                  <h4>TTT NLP - 7 Days Workshop Program</h4>
-                </div>
-              </li>
-            </ul>
-            <div class="category-desc">
-              <div class="category-detail category-desc-text">
-                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 24th Aug.jpg')">VIEW</button>
-              </div>
-            </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;color:#2bcdc1;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">24th Aug,2018</i></span>
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>  
-        <div class="col-md-4 col-sm-6">
-          <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
-                <div class="brows-job-location">
-                  <h4>NLP - Certification Program</h4>
-                </div>
-              </li>
-            </ul>
-            <div class="category-desc">
-              <div class="category-detail category-desc-text">
-                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 13th to 18th Nov-2018.png')">VIEW</button>
-              </div>
-            </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;color:#2bcdc1;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">13th to 24th Aug,2018</i></span>
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>  
-        <div class="col-md-4 col-sm-6">
-          <div class="category-box" data-aos="fade-up">
-            <ul class="eventTop">
-              <li style="background-color: #e4e4e4;">
-                <div class="brows-job-location">
-                  <h4>NLP - Neuro Logistics Programming</h4>
-                </div>
-              </li>
-            </ul>
-            <div class="category-desc">
+            <div class="category-desc thumbnail1">
               <div class="category-detail category-desc-text">
                 <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 21st Sept-2018 to 1st Oct 2018.jpg')">VIEW</button>
               </div>
             </div>
-            <ul class="eventBottom">
-              <li style="background-color: #e4e4e4;color:#2bcdc1;">
-                <p>
-                  <span class="brows-job-sallery"><i class="fa fa-calendar">21st Sept to 1st Oct,2018</i></span>
-                </p>
-              </li>
-            </ul>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">21st Sept to 1st Oct,2018</i></span>
+            </div>
           </div>
-        </div>  
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <div class="eventTop1">
+                <div class="brows-job-location">
+                  <h4>TTT NLP - 7 Days Workshop Program</h4>
+                </div>
+            </div>
+            <div class="category-desc thumbnail1">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 24th Aug.jpg')">VIEW</button>
+              </div>
+            </div>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">24th Aug,2018</i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <div class="eventTop1">
+                <div class="brows-job-location">
+                  <h4>NLP - Certification Program</h4>
+                </div>
+            </div>
+            <div class="category-desc thumbnail1">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 13th to 18th Nov-2018.png')">VIEW</button>
+              </div>
+            </div>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">13th to 24th Aug,2018</i></span>
+            </div>
+          </div>
+        </div>        
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <div class="eventTop1">
+                <div class="brows-job-location">
+                  <h4>GraphoAnalysis</h4>
+                </div>
+            </div>
+            <div class="category-desc thumbnail3">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Graphoanalysis 29th July.png')">VIEW</button>
+              </div>
+            </div>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">29th July,2018</i></span>
+            </div>
+          </div>
+        </div>        
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <div class="eventTop1">
+                <div class="brows-job-location">
+                  <h4>NLP - Neuro Logistics Programming</h4>
+                </div>
+            </div>
+            <div class="category-desc thumbnail1">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('NLP 19th July.jpg')">VIEW</button>
+              </div>
+            </div>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">19th July,2018</i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="category-box" data-aos="fade-up">
+            <div class="eventTop1">
+                <div class="brows-job-location">
+                  <h4>Automobile Industry</h4>
+                </div>
+            </div>
+            <div class="category-desc thumbnail2">
+              <div class="category-detail category-desc-text">
+                <button class="btn" style="background-color:#2bcdc1;"  onclick="showEventLightBox('Automobile 8th July.jpg')">VIEW</button>
+              </div>
+            </div>
+            <div class="eventBottom1">
+              <span class="brows-job-sallery"><i class="fa fa-calendar">8th July,2018</i></span>
+            </div>
+          </div>
+        </div>
       </div>
    </div>
   </section>
@@ -525,6 +492,7 @@ require('backend/dbConnect.php');
               '</div>'+
             '</div>';
             });
+            content +='<div class="col-md-4 col-sm-6 viewmore"><a class="btn btn-info" href="jobslist.php" style="background-color:#2bcdc1;">VIEW MORE</a></div>';
             $('#jobs').html(content);            
           } else {
             $('#jobs').html('No Jobs Available');

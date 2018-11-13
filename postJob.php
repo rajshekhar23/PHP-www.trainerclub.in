@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trainer's Club</title>
+  <title>Trainer's Club</title>
   <link rel="shortcut icon" type="image/icon" href="assets/images/logonew.png" />
-
- <link href="assets/css/font-awesome.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.css" rel="stylesheet">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
   <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="screen" />
+  <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
   <link rel="stylesheet" href="assets/css/font-awesome.css">
   <link rel="stylesheet" href="assets/css/animate.css">
@@ -48,7 +48,7 @@
   <!-- End login modal window -->
 
   <!-- Start contact section  -->
-  <section id="contact">
+  <section id="contact1">
     <div class="container">
       <div class="row">
         <h2 class="text-center formTitle"> Client's Job Post Form </h2>
@@ -97,6 +97,10 @@
                       </select>
                   </div>
                 <div class="form-group">
+                      <label for="City" class="col-form-label">City</label>
+                      <input type="text" name="city" id="city" class="form-control" placeholder="Enter City Name" required>
+                </div>  
+                <div class="form-group">
                     <label for="Salary / Payment Period" class="col-form-label">Salary / Payment Period</label>
                     <select id="salaryPeriod" name="salaryPeriod" class="form-control" required>
                         <option value="">Select Salary/Payment Period</option>
@@ -105,14 +109,6 @@
                         <option value="Hourly">Hourly</option>
                         <option value="Project Based">Project Based</option>
                     </select>
-                </div>
-                <div class="form-group">
-                      <label for="City" class="col-form-label">City</label>
-                      <input type="text" name="city" id="city" class="form-control" placeholder="Enter City Name" required>
-                </div>
-                <div class="form-group">
-                    <label for='gallery' class="col-form-label">Upload Images And Logos:</label>
-                    <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/>
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -133,13 +129,17 @@
                         <label for="Job Description" class="col-form-label">Job Description</label>
                     </div>
                     <div class="col-md-8">
-                        <textarea name="jobDescription" id="jobDescription" class="form-control" placeholder="Enter City Name" required></textarea>
+                        <textarea name="jobDescription" id="jobDescription" class="form-control" placeholder="Enter Job Description" required></textarea>
                     </div>
                     </div>  
                 </div>
                 <label class="text-left" style="width: 100%;margin:20px 0;">
                     * Please do not mention your contact details anywhere in this form.
                 </label>
+                <div class="form-group">
+                    <label for='gallery' class="col-form-label">Upload Image And Logo:</label>
+                    <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/>
+                </div>
             </div>
           </div>
           <button class='btn btn-primary btn-md' id="btnSavePost" style="background-color:#2bcdc1;" type="submit">SAVE</button>

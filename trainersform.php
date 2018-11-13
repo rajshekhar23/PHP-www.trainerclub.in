@@ -11,6 +11,7 @@
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
   <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="screen" />
+  <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
   <link rel="stylesheet" href="assets/css/font-awesome.css">
   <link rel="stylesheet" href="assets/css/animate.css">
@@ -124,19 +125,19 @@
                 <div class="panel-body">
                   <div class="form-group">
                       <label for="Academic" class="col-form-label">Academic</label>
-                      <input type="text"  name="academic" id="academic" class="form-control" placeholder="Academic" required>
+                      <input type="text"  onkeypress="return isNumericKey(event)" name="academic" id="academic" class="form-control" placeholder="Academic" required>
                   </div>
                   <div class="form-group">
                       <label for="Professional" class="col-form-label">Professional</label>
-                      <input type="text" name="professional" id="professional" class="form-control" placeholder="Professional" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" name="professional" id="professional" class="form-control" placeholder="Professional" required>
                   </div>
                   <div class="form-group">
                       <label for="Diploma/Certification" class="col-form-label">Diploma / Certification</label>
-                      <input type="text" name="diplomaCertification" id="diplomaCertification" class="form-control" placeholder="Diploma / Certification" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" name="diplomaCertification" id="diplomaCertification" class="form-control" placeholder="Diploma / Certification" required>
                   </div>
                   <div class="form-group">
                       <label for="Awards / Rewards" class="col-form-label">Awards / Rewards</label>
-                      <input type="text" name="awardsRewards" id="awardsRewards" class="form-control" placeholder="Awards / Rewards" required>
+                      <input type="text" onkeypress="return isNumericKey(event)" name="awardsRewards" id="awardsRewards" class="form-control" placeholder="Awards / Rewards" required>
                   </div>
                   <div class="form-group">
                       <label for="Awards / Rewards" class="col-form-label">Brief About Your Professional Journey</label>
@@ -144,11 +145,11 @@
                   </div>
                   <div class="form-group">
                       <label for="Total Experience in yrs" class="col-form-label">Total Experience (Years)</label>
-                      <input type="text" name="totalExperience" id="totalExperience" class="form-control" placeholder="Total Experience (Years)" required>
+                      <input type="text"  maxlength="5" onkeypress="return isNumberKey(event)" name="totalExperience" id="totalExperience" class="form-control" placeholder="Total Experience (Years)" required>
                   </div>
                   <div class="form-group">
                       <label for="Relevant Training Experience in yrs" class="col-form-label">Relevant Training Experience (Years)</label>
-                      <input type="text" name="relevantExperience" id="relevantExperience" class="form-control" placeholder="Relevant Training Experience (Years)" required>
+                      <input type="text"  maxlength="5" onkeypress="return isNumberKey(event)" name="relevantExperience" id="relevantExperience" class="form-control" placeholder="Relevant Training Experience (Years)" required>
                   </div>
                   <div class="form-group">
                       <label for="Organization worked with" class="col-form-label">Organization Worked With [Latest 5] </label>
@@ -278,13 +279,12 @@
                 <div class="panel-heading">Reffered By</div>
                 <div class="panel-body">
                     <div class="form-group">
-
                         <label for="First Name" class="col-form-label">Name of TC Member</label>
-                        <input type="text"  name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member">
+                        <input type="text"  onkeypress="return isNumericKey(event)" name="tcmember" id="tcmember" class="form-control" placeholder="Name of TC Member">
                     </div>
                     <div class="form-group">
                         <label for="Enrollment Id" class="col-form-label">Enrollment ID</label>
-                        <input type="text" name="enrollmentId" id="enrollmentId" class="form-control" placeholder="Enrollment Id">
+                        <input type="text" name="enrollmentId" onkeypress="return isNumberKey(event)" id="enrollmentId" class="form-control" placeholder="Enrollment Id">
                     </div>
                 </div>
               </div>
@@ -292,28 +292,26 @@
                 <div class="panel-heading">Personal Information</div>
                 <div class="panel-body">
                   <div class="form-group">
-
-    <!--                     <label for='gallery' class="col-form-label">Add Profile Picture</label>
-                        <input id='gallery' name="gallery[]" type="file" multiple="multiple" required/> -->
-
+                        <label for='profile' class="col-form-label">Add Profile Picture</label>
+                        <input id='profile' name="profile" type="file" required/>
                         <label for="First Name" class="col-form-label">First Name</label>
-                        <input type="text"  name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                        <input type="text"  onkeypress="return isNumericKey(event)" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Middle Name" class="col-form-label">Middle Name</label>
-                        <input type="text" name="middleName" id="middleName" class="form-control" placeholder="Middle Name">
+                        <input type="text" onkeypress="return isNumericKey(event)" name="middleName" id="middleName" class="form-control" placeholder="Middle Name">
                     </div>
                     <div class="form-group">
                         <label for="Last Name" class="col-form-label">Last Name</label>
-                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+                        <input type="text" onkeypress="return isNumericKey(event)" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
                         <label for="Contact" class="col-form-label">Contact Number</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" name="contact" id="contact" class="form-control" placeholder=" Contact" required>
+                        <input type="text" maxlength="10" onkeypress="return isNumberKey(event)" name="contact" id="contact" class="form-control" placeholder=" Contact" required>
                     </div>
                     <div class="form-group">
                         <label for="Contact" class="col-form-label">Alternate Contact Number</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" name="alternatecontact" id="alternatecontact" class="form-control" placeholder="Alternate Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
+                        <input type="text" maxlength="10" onkeypress="return isNumberKey(event)" name="alternatecontact" id="alternatecontact" class="form-control" placeholder="Alternate Contact" onkeypress="return isNumberKey(event)" maxlength="10" required>
                     </div>
                     <div class="form-group">
                         <label for="Email Id" class="col-form-label">Email Id</label>
@@ -325,15 +323,15 @@
                     </div>
                     <div class="form-group">
                         <label for="Street" class="col-form-label">Street</label>
-                        <input type="text" name="street" id="street" class="form-control" placeholder="Street" required>
+                        <input type="text" onkeypress="return isNumericKey(event)" name="street" id="street" class="form-control" placeholder="Street" required>
                     </div>
                     <div class="form-group">
                         <label for="City" class="col-form-label">City</label>
-                        <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+                        <input type="text" onkeypress="return isNumericKey(event)" name="city" id="city" class="form-control" placeholder="City" required>
                     </div>
                     <div class="form-group">
                         <label for="Pincode" class="col-form-label">Pincode</label>
-                        <input type="text" name="pincode" id="pincode" class="form-control" placeholder="Pincode" required>
+                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="6" name="pincode" id="pincode" class="form-control" placeholder="Pincode" required>
                     </div>
                     <div class="form-group">
                         <label for="State" class="col-form-label">State</label>

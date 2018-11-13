@@ -2,8 +2,8 @@ var STATE_LIST = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattis
 "Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur",
 "Meghalaya","Mizoram","Nagaland","Orissa","Punjab","Pondicherry","Rajasthan","Sikkim","Tamil Nadu","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"];
 var orgWorkedWithList = [];
-$(document).ready(function () {
 
+$(document).ready(function () {
   $("#addAllOrgWorkedWithList").click(function(event) {
     event.preventDefault();
     orgWorkedWithList = [];
@@ -86,7 +86,12 @@ $(document).ready(function () {
 
   $("form[name='editTrainerForm']").on('submit', function (e) {
     e.preventDefault();
+    if(orgWorkedWithList.length == 0) {
+        $("#orgName1").focus();
+        return false;
+    }
     var formData = new FormData(this);
+    formData.append('orgWorkedWithList',JSON.stringify(orgWorkedWithList));
     $.ajax({
       type: 'post',
       url: 'backend/editTrainerOperation.php',
@@ -115,6 +120,7 @@ $(document).ready(function () {
       contentType: false,
       data: formData,
       success: function (data) {
+        console.log(data);
         if(data > 0) {
           toast('Client enrolled successfully');
           setTimeout(function(){
@@ -196,7 +202,9 @@ $(document).ready(function () {
   });
 
   $("#selectSoftSkillsText").blur(function () {
-    addSkill('softskills',$(this).val());
+    if ($(this).val() != null && $(this).val() != '') {
+      addSkill('softskills',$(this).val());
+    }
   });
 
   $("#technicalSkills").change(function () {
@@ -208,7 +216,9 @@ $(document).ready(function () {
   });
 
   $("#selectTechnicalSkillsText").blur(function () {
-    addTechnicalSkills('technicalSkills',$(this).val());
+    if ($(this).val() != null && $(this).val() != '') {
+      addTechnicalSkills('technicalSkills',$(this).val());
+    }
   });
 
 });
@@ -247,6 +257,7 @@ function loadAllSoftSkills() {
       var element = '<option value=' + option.skillname + '>' + option.skillname + '</option>';
       $("#selectSoftSkills").append(element);
     });
+    $("#selectSoftSkills").append('<option value="Other">Other</option>');
   })
 }
 
@@ -257,8 +268,10 @@ function loadAllTechnicalSkilss() {
   }, function (data) {
     console.log('OrgWorkedWith list', data);
     data.forEach(option => {
-      var element = '<option value=' + option.orgworkedwithname + '>' + option.orgworkedwithname + '</option>';
-      $("#technicalSkills").append(element);
+      if(option.orgworkedwithname) {
+        var element = '<option value=' + option.orgworkedwithname + '>' + option.orgworkedwithname + '</option>';
+        $("#technicalSkills").append(element);
+      }
     });
     var element = '<option value="Other">Other</option>';
     $("#technicalSkills").append(element);

@@ -242,10 +242,10 @@
         $.post("./backend/allProducts.php",objectParam,function(data) {
             console.log(data);
             data.forEach(function(object,index) {
-                var url = "./backend/uploads/trainerIdentity-"+object.trainer_id+".jpg";
+                var url = "./backend/uploads/trainer/"+object.trainer_id+"/identity/AadharIdentity-"+object.trainer_id+".jpg";
                 var item = '<div class = "col-sm-6 col-md-3 item">' +
                     '<div class = "thumbnail">' +
-                        '<img src ="'+url+'"  alt = "Trainer\'s identity">' +
+                        '<img style="height:230px;width:100%;" src ="'+url+'"  alt = "Trainer\'s identity">' +
                     '</div>' +
                     '<div class = "caption">'+
                         '<p>Name: <span>' + 
@@ -255,7 +255,7 @@
                         '<p>Certification: '+ object.diplomaCertification +'</p>' +
                         '<p>Academic: '+ object.academic +'</p>' +        
                     '</div>'+
-                    '<div class="bg-info1" style="border-radius:2px;"><label class="col-form-label" style="padding:1px 2px;"><input style="zoom:2.2;padding:1px 2px;margin-right:3px;" type="checkbox" onchange="checkCount(event)" value="'+ object.trainer_id +'" name="chkSelected" />'+
+                    '<div class="bg-info1" style="border-radius:2px;padding: 0 6px;"><label class="col-form-label" style="padding:1px 2px;"><input style="zoom:2.2;padding:1px 2px;margin-right:3px;" type="checkbox" onchange="checkCount(event)" value="'+ object.trainer_id +'" name="chkSelected" />'+
                     '<span style="display:block;margin-top:12px;float:right;width: 57%;">SELECT</span></label></div>' +
                 '</div>';                
                 $("#trainerListWrapper").append(item);

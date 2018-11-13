@@ -220,7 +220,7 @@
              <div class="col-md-10">
                 <div class="form-group">
                       <label for="Select Trainer" class="col-form-label">Client Name</label>
-                      <input type="text" name="clientname" id="clientname" placeholder="Enter Full Name" class="form-control" required>
+                      <input type="text" name="clientname" id="clientname" onkeypress="return isNumericKey(event)" placeholder="Enter Full Name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="Select Sub Category" class="col-form-label">Client Email Id</label>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Select Sub Category" class="col-form-label">Client Location</label>
-                    <input type="text" name="clientaddress" id="clientaddress" class="form-control" placeholder="Enter Full Address Here" required/>
+                    <input type="text" name="clientaddress" id="clientaddress" onkeypress="return isNumericKey(event)" class="form-control" placeholder="Enter Full Address Here" required/>
                 </div>
                 <div class="form-group">
                   <label for="Confirm Your Identity" class="col-form-label">Confirm Your Identity</label>

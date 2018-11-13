@@ -6,7 +6,6 @@
     $rows = mysqli_num_rows($result);
     if( $rows > 0) {
       $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-      print_r($row);
       $orgList = json_decode($row["selectOrgWorkedWith"]);
     }   
   }
@@ -91,22 +90,12 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="col-md-3">
-                    Aadhar Indentity <br><br>
+                    <p>Profile Picture</p>
                     <div class = "thumbnail">
-                        <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/AadharIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
-                    </div>
-                    <br>
-                    Pan Indentity <br><br>
-                    <div class = "thumbnail">
-                      <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/CancelledCheckIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
-                    </div>
-                    <br>
-                    Cancelled Check Indentity <br><br>
-                    <div class = "thumbnail">
-                    <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/PanIdentity-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
+                      <img src =<?php echo "./backend/uploads/trainer/" .$row['trainer_id']."/identity/ProfilePicture-" .$row['trainer_id'].".jpg" ?> alt = "Trainer\'s identity">
                     </div>
                   </div>
-                  <div class="col-md-8" style="border-left:1px solid #ddd;"> <br><br>
+                  <div class="col-md-8" style="border-left:1px solid #ddd;">
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Main Trainer Category :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['trainerParentCategory']?></label>
@@ -166,15 +155,19 @@
                             <th>Month/Year</th>
                           </tr>
                           <?php
-                            for ($i=0; $i <5; $i++) {
+                            if(count($orgList) > 0 ) {              
+                              for ($i=0; $i <count($orgList); $i++) {                              
                           ?>
                           <tr>
-                            <td><?php echo $orgList[$i]->orgName;?></td>
+                            <td><?php if($orgList[$i]->orgName !== '') { echo $orgList[$i]->orgName;}?></td>
                             <td><?php echo $orgList[$i]->trainingName;?></td>
                             <td><?php echo $orgList[$i]->topicsCovered;?></td>
                             <td><?php echo $orgList[$i]->orgName;?></td>
                             <td><?php echo $orgList[$i]->duration;?></td>
                           </tr>
+                            <?php } } else {
+                            ?> <tr><td colspan="5" class="text-center">No Organization entered</td></tr>
+
                             <?php } ?>
                         </table>
                     </div>
@@ -193,6 +186,10 @@
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Contact Number :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['contact']?></label>
+                    </div>                  
+                    <div class="form-group">
+                      <label for="Select Trainer" class="col-form-label" >Alternate Number :</label>
+                      <label for="Select Trainer" class="col-form-label"><?php echo $row['alternatecontact']?></label>
                     </div>                  
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Email Id :</label>
@@ -217,6 +214,18 @@
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >State :</label>
                       <label for="Select Trainer" class="col-form-label"><?php echo $row['state']?></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Select Trainer" class="col-form-label" >Uploaded Identity :</label> <br>
+                      <div class = "thumbnail">
+                        <img src =<?php echo "./backend/uploads/trainer/".$row['trainer_id']."/identity/AadharIdentity-".$row['trainer_id'].".jpg"?> alt = "Trainer\'s identity">
+                      </div>
+                      <div class = "thumbnail">
+                        <img src =<?php echo "./backend/uploads/trainer/".$row['trainer_id']."/identity/CancelledCheckIdentity-".$row['trainer_id'].".jpg"?> alt = "Trainer\'s identity">
+                      </div>
+                      <div class = "thumbnail">
+                        <img src =<?php echo "./backend/uploads/trainer/".$row['trainer_id']."/identity/PanIdentity-".$row['trainer_id'].".jpg"?> alt = "Trainer\'s identity">
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="Select Trainer" class="col-form-label" >Uploaded Gallery :</label> <br>

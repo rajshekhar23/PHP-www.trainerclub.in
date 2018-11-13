@@ -9,13 +9,13 @@
         <div class="modal-body">
         <form action="backend/signupOperation.php" method="post">
             <div class="form-group">
-              <input placeholder="Name" class="form-control" name="name" required>
+              <input type="text" placeholder="Name" class="form-control" name="name" required>
             </div>
             <div class="form-group">
-              <input placeholder="Username" class="form-control" name="user_name" required>
+              <input type="text" placeholder="Username" class="form-control" name="user_name" required>
             </div>
             <div class="form-group">
-              <input placeholder="Email" class="form-control" name="email" required>
+              <input type="email" placeholder="Email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control" name="password" required>

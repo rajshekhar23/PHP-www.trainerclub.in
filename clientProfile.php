@@ -91,7 +91,7 @@
                   <div class="col-md-3"  style="border-right:1px solid #ddd;">
                     Profile Picture / Indentity <br><br>
                     <div class = "thumbnail">
-                    <?php echo '<img src = "./backend/uploads/clientIdentity-'. $row["client_id"].'.jpg" alt = "Client\'s identity">'; ?>
+                    <?php echo '<img src = "./backend/uploads/client/clientIdentity-'. $row["client_id"].'.jpg" alt = "Client\'s identity">'; ?>
                     </div>
                   </div>
                   <div class="col-md-8">
@@ -121,29 +121,9 @@
   </section>
   <!-- End contact section  -->
 
-  <!-- Start footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-left">
-            <p>Designed by <a href="http://www.cerbosys.com/">cerbosys</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <div class="footer-right">
-            <a href="index.php"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- End footer -->
-
+<?php
+  include_once('footer.php');
+?>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

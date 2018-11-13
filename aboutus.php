@@ -80,7 +80,7 @@ h1{
 }
 
 .our-team:hover .pic img {
-    box-shadow: 0 0 0 14px orange;
+    box-shadow: 0 0 0 14px #e05121;
     transform: scale(0.7);
 }
 
@@ -127,7 +127,7 @@ h1{
 
    }
    .our-team .social li a:hover{
-       color: orange;
+       color: #e05121;
        background: #f7f5ec;
        text-decoration: none;
 
